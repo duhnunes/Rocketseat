@@ -3,12 +3,14 @@ import { ReactNode } from "react"
 
 interface ButtonProps {
   children: ReactNode
-  variant: string
+  variant?: string
+
+  onClick: () => void
 }
 
-export const Button = ({ children, variant }: ButtonProps) => {
+export const Button = ({ children, variant, onClick }: ButtonProps) => {
   return(
-    <ButtonBase type="button" variant={variant}>
+    <ButtonBase type="button" variant={variant} onClick={onClick}>
       {children}
     </ButtonBase>
   )

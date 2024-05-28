@@ -47,8 +47,12 @@ export const Checkbox = styled.input`
     &::before{
       content:'✔';
       position:absolute;
-      top:-4px;
-      left:0;
+      top:50%;
+      left:50%;
+
+      translate:-50% -50%;
+      
+      font-size:.75rem;
 
       color:${(props) => props.theme["gray-100"]};
     }

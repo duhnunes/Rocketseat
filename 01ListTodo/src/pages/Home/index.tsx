@@ -8,18 +8,25 @@ import { BaseBgTaskCounter, BorderTop, ContentContainer, HeaderContainer, MainCo
 
 import clipboard from '/public/clipboard.svg'
 
+import { Button } from "./components/Button";
+
 export function Home() {
-  const [hasTask, setHasTask] = useState(true)
+  const [hasTask, setHasTask] = useState(false)
   return(
     <>
+      
       <Header />
       <AddTodo />
       <MainContainer>
+        <Button variant="test" onClick={() => setHasTask((prev) => !prev)}>
+          Test with list and without list
+        </Button>
         <HeaderContainer>
           <TaskTextCreated>
             Tarefas criadas
             <BaseBgTaskCounter>0</BaseBgTaskCounter>
           </TaskTextCreated>
+      
           <TaskTextFinished>
             Concluídas
             <BaseBgTaskCounter>0</BaseBgTaskCounter>
@@ -43,6 +50,8 @@ export function Home() {
             </>
           ) : (
             <>
+              <TaskItem />
+              <TaskItem />
               <TaskItem />
               <TaskItem />
             </>
