@@ -5,7 +5,7 @@ interface ButtonProps {
   children: ReactNode
   variant?: string
 
-  onClick: () => void
+  onClick?: () => void
 }
 
 export const Button = ({ children, variant, onClick }: ButtonProps) => {
