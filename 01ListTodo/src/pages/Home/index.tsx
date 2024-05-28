@@ -19,7 +19,7 @@ export function Home() {
       <AddTodo />
       <MainContainer>
         <Button variant="test" onClick={() => setHasTask((prev) => !prev)}>
-          Test with list and without list
+          Test conditional render list
         </Button>
         <HeaderContainer>
           <TaskTextCreated>

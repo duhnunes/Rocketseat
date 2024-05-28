@@ -26,6 +26,20 @@ export const GlobalStyle = createGlobalStyle`
   :focus{
     outline:1px solid ${(props) => props.theme['purple-dark']};
   }
+
+  ::-webkit-scrollbar{
+    width:6px;
+  }
+  ::-webkit-scrollbar-thumb{
+    background-color:${(props) => props.theme["blue-dark"]};
+    border-radius:9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover{
+    background-color:${(props) => props.theme.blue};
+  }
+  ::-webkit-scrollbar-track{
+    background-color:${(props) => props.theme["gray-400"]};
+  }
   
   @media (prefers-color-scheme: light) {
   :root {
