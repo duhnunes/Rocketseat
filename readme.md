@@ -8,4 +8,3 @@
   > * Projeto refeito do zero.
   > * Técnologia fora do escopo utilizada (**__styled-components__**)
   >> * Styled-Components utilizada para aprendizagem
-

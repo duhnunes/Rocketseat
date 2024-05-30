@@ -13,10 +13,8 @@ const varyantStyles = (theme: ThemeType, variant = 'primary') => ({
   ghost: css`
     color:${theme["gray-300"]};
     background-color:transparent;
-    padding:0;
-
-    height:24px;
-    width:24px;
+    padding:.125rem;
+    border-radius:3px!important;
 
     &:hover{
       color:${theme.danger};
@@ -28,9 +26,10 @@ const varyantStyles = (theme: ThemeType, variant = 'primary') => ({
 
     transition: translate .1s;
 
-    &:active{
-      translate:-1px 1px;
+    &:hover{
+      filter:brightness(.75);
     }
+
     &:focus{
       outline:0;
     }
@@ -60,5 +59,9 @@ export const ButtonBase = styled.button<VariantProps>`
   -ms-user-select:none;
   -moz-user-select:none;
   -webkit-user-select:none;
-  transition:background-color .25s;
+  transition:background-color .25s, color .25s;
+
+  &:active{
+    translate:-1px 1px;
+  }
 `

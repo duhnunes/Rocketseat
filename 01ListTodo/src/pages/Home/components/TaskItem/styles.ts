@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const TaskItemContainer = styled.section`
   display:flex;
   gap:.75rem;
+  align-items:flex-start;
 
+  width:100%;
   max-width:736px;
   padding:16px;
 
