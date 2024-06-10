@@ -8,6 +8,10 @@ export const MainContainer = styled.main`
 
   margin:64px auto 0;
   max-width:46rem;
+
+  @media(max-width:768px){
+   padding:0 .5rem; 
+  }
 `
 
 export const HeaderContainer = styled.header`

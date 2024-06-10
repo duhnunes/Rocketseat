@@ -2,7 +2,7 @@
 import { InputBase } from "./styles"
 
 interface InputProps{
-  type: string
+  type?: string
   name?: string
   id?: string
   placeholder?: string
@@ -11,15 +11,11 @@ interface InputProps{
   value?: string
 }
 
-export const Input = ({ type, name, placeholder, id, onChange, value }: InputProps) => {
+export const Input = ({ type = "text", ...props }: InputProps) => {
   return(
     <InputBase
       type={type}
-      name={name}
-      id={id}
-      placeholder={placeholder}
-      onChange={onChange}
-      value={value}
+      {...props}
     />
   )
 }

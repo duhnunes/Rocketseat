@@ -35,9 +35,8 @@ export const AddTodo = ({ newItemTask, listItemTask }: any) => {
   }
 
   return(
-    <AddTodoContainer onSubmit={handleCreateNewItem} className="test">
+    <AddTodoContainer onSubmit={handleCreateNewItem}>
       <Input
-        type="text"
         name="addTodo"
         id="addTodo"
         placeholder="Adicione uma nova tarefa"

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TaskItemContainer = styled.section`
   display:flex;
   gap:.75rem;
-  align-items:flex-start;
+  align-items:center;
 
   width:100%;
   max-width:736px;
@@ -20,5 +20,15 @@ export const TaskItemContainer = styled.section`
 
   p{
     flex:1;
+  }
+
+  &[type="checkbox"]:checked{
+    background-color:${(props) => props.theme["gray-100"]};
+    filter:brightness(2);
+  }
+
+  &.checked{
+    filter:brightness(.9);
+    cursor:default;
   }
 `

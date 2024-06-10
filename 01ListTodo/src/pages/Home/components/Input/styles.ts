@@ -28,6 +28,10 @@ export const Checkbox = styled.input`
 
   transition:outline-color .15s;
 
+  &[type="checkbox"]{
+    cursor:pointer;
+  }
+
   &:hover{
     outline-color:${(props) => props.theme["blue-dark"]}
   }
@@ -55,6 +59,11 @@ export const Checkbox = styled.input`
       font-size:.75rem;
 
       color:${(props) => props.theme["gray-100"]};
+    }
+
+    & ~ p {
+      color:${props => props.theme["gray-300"]};
+      text-decoration:line-through;
     }
   }
 `
