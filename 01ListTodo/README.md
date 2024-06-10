@@ -4,7 +4,7 @@ Projeto DESAFIO do Curso Ignite da RocketSeat
 # Links
 > Projeto recriado após a conclusão, para melhor aprendizado e com um esforço maior em pesquisas para resolver os problemas e ter o resultado desejado.
 
-Link do Desafio: [ListTodo Vercel](https://desafiolvl1.vercel.app/)
+Link do Desafio: [ListTodo Vercel](https://todolist-ignite-duhnunes.vercel.app/)
 
 # Observações
  > * Eu não consegui concluir anteriormente no tempo estimado, então resolvi recriá-lo para continuar os estudos.
