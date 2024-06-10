@@ -11,13 +11,15 @@ import { Checkbox } from "../Input/styles"
 
 export const TaskItem = ({ content }: any) => {
   return(
-    <TaskItemContainer key={content.id}>
+    <TaskItemContainer>
       <Checkbox type="checkbox" />
-      {content.map((line: any) => {
-        if(line.type === 'paragraph'){
-          return <p>{line.text}</p>
-        }
-      })}
+      { content &&
+        content.map((line: any) => {
+          if(line.type === 'paragraph'){
+            return <p>{line.text}</p>
+          }
+        })
+      }
       <Button variant="ghost">
         <Trash size={24} />
       </Button>

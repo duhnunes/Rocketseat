@@ -8,37 +8,43 @@ import { BaseBgTaskCounter, BorderTop, ContentContainer, HeaderContainer, MainCo
 
 import clipboard from '/clipboard.svg'
 
-import { Button } from "./components/Button";
+interface Line {
+  type: string
+  text: string
+}
+interface ItemTaskProps {
+  id: string
+  content: Line[]
+}
 
-const itemTask = [
-  {
-    id:1,
-    content: [
-      { type: 'paragraph', text: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.' }
-    ]
-  },
-  {
-    id:2,
-    content: [
-      { type: 'paragraph', text: 'Info legal' }
-    ]
-  }
-]
+// const itemTask = [
+//   {
+//     id:1,
+//     content: [
+//       { type: 'paragraph', text: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.' }
+//     ]
+//   },
+//   {
+//     id:2,
+//     content: [
+//       { type: 'paragraph', text: 'Info legal' }
+//     ]
+//   },
+// ]
 
 export function Home() {
-  const [hasTask, setHasTask] = useState(false)
+  const [itemTask, setItemTask] = useState<ItemTaskProps[]>([])
   return(
     <>
       <Header />
-      <AddTodo />
+      <AddTodo newItemTask={setItemTask} listItemTask={itemTask} />
       <MainContainer>
-        <Button variant="test" onClick={() => setHasTask((prev) => !prev)}>
-          Test conditional render list
-        </Button>
         <HeaderContainer>
           <TaskTextCreated>
             Tarefas criadas
-            <BaseBgTaskCounter>0</BaseBgTaskCounter>
+            <BaseBgTaskCounter>
+              { itemTask.length }
+            </BaseBgTaskCounter>
           </TaskTextCreated>
       
           <TaskTextFinished>
@@ -48,7 +54,7 @@ export function Home() {
         </HeaderContainer>
 
         <ContentContainer>
-          { !hasTask ? (
+          { itemTask.length === 0 ? (
             <>
               <BorderTop />
               <NoTasksContainer>
