@@ -6,15 +6,29 @@ import { TaskItem } from './components/TaskItem'
 
 import { BaseBgTaskCounter, BorderTop, ContentContainer, HeaderContainer, MainContainer, NoTasksContainer, TaskTextCreated, TaskTextFinished } from "./styles";
 
-import clipboard from '/public/clipboard.svg'
+import clipboard from '/clipboard.svg'
 
 import { Button } from "./components/Button";
+
+const itemTask = [
+  {
+    id:1,
+    content: [
+      { type: 'paragraph', text: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.' }
+    ]
+  },
+  {
+    id:2,
+    content: [
+      { type: 'paragraph', text: 'Info legal' }
+    ]
+  }
+]
 
 export function Home() {
   const [hasTask, setHasTask] = useState(false)
   return(
     <>
-      
       <Header />
       <AddTodo />
       <MainContainer>
@@ -49,12 +63,14 @@ export function Home() {
               </NoTasksContainer>
             </>
           ) : (
-            <>
-              <TaskItem />
-              <TaskItem />
-              <TaskItem />
-              <TaskItem />
-            </>
+            itemTask.map((item) => {
+              return(
+                <TaskItem
+                  key={item.id}
+                  content={item.content}
+                />
+              )
+            })
           )}
         </ContentContainer>
       </MainContainer>
