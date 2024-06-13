@@ -71,7 +71,7 @@ export function Home() {
             Concluídas
             <BaseBgTaskCounter>
               {
-               `${itemTask.length} de ${itemTask.length}` 
+               `0 de ${itemTask.length}` 
               }
             </BaseBgTaskCounter>
           </TaskTextFinished>
