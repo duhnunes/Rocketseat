@@ -51,7 +51,7 @@ export function Home() {
       })
 
     setItemTask(itemTaskWithoutDeletedOne)
-    console.log(`Deleted item: ${itemTaskDelete.id}\nContent: ${JSON.stringify(itemTaskDelete.content)}`)
+    console.log(`Delete Item: ${itemTaskDelete.content[0].text}`)
   }
 
   return(
