@@ -1,18 +1,28 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 
 import { AddTodo } from "./components/AddTodo";
 import { Header } from "./components/Header";
 import { TaskItem } from './components/TaskItem'
 
-import { BaseBgTaskCounter, BorderTop, ContentContainer, HeaderContainer, MainContainer, NoTasksContainer, TaskTextCreated, TaskTextFinished } from "./styles";
+import {
+  BaseBgTaskCounter,
+  BorderTop,
+  ContentContainer,
+  HeaderContainer,
+  MainContainer,
+  NoTasksContainer,
+  TaskTextCreated,
+  TaskTextFinished
+} from "./styles";
 
 import clipboard from '/clipboard.svg'
 
-interface Line {
+export interface Line {
   type: string
   text: string
 }
-interface ItemTaskProps {
+export interface ItemTaskProps {
   id: string
   content: Line[]
 }
@@ -34,6 +44,16 @@ interface ItemTaskProps {
 
 export function Home() {
   const [itemTask, setItemTask] = useState<ItemTaskProps[]>([])
+
+  const deleteTaskItem = (itemTaskDelete: ItemTaskProps) => {
+    const itemTaskWithoutDeletedOne = itemTask.filter(item => {
+      return item.id !== itemTaskDelete.id
+      })
+
+    setItemTask(itemTaskWithoutDeletedOne)
+    console.log(`Deleted item: ${itemTaskDelete.id}\nContent: ${JSON.stringify(itemTaskDelete.content)}`)
+  }
+
   return(
     <>
       <Header />
@@ -49,7 +69,11 @@ export function Home() {
       
           <TaskTextFinished>
             Concluídas
-            <BaseBgTaskCounter>0</BaseBgTaskCounter>
+            <BaseBgTaskCounter>
+              {
+               `${itemTask.length} de ${itemTask.length}` 
+              }
+            </BaseBgTaskCounter>
           </TaskTextFinished>
         </HeaderContainer>
 
@@ -73,7 +97,9 @@ export function Home() {
               return(
                 <TaskItem
                   key={item.id}
+                  id={item.id}
                   content={item.content}
+                  onDeleteTaskItem={deleteTaskItem}
                 />
               )
             })

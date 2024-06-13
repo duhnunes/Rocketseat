@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from "react"
+import { v4 as uuidv4 } from 'uuid'
+
 import { PlusCircle } from "@phosphor-icons/react"
 import { AddTodoContainer } from "./styles"
-import { useState } from "react"
 
 import { Button } from "../Button"
 import { Input } from "../Input"
@@ -16,18 +18,19 @@ export const AddTodo = ({ newItemTask, listItemTask }: any) => {
   const handleCreateNewItem = (event: any) => {
     event.preventDefault();
     // const newItemTaskText = event.target.addTodo.value PADRÂO JS
-    console.log('Add Item to Task: ' + newItemTaskText);
-
+    
     const newTaskText = { 
-      id: (listItemTask.length + 1).toString(),
+      id: uuidv4(),
       content: [
         { type: 'paragraph', text: newItemTaskText },
       ],
+      isChecked: false
     };
 
     newItemTask([...listItemTask, newTaskText])
-
     setNewItemTaskText('');
+
+    console.log(`Add Item: ${newItemTaskText}`);
   }
 
   const handleNewItemTaskChange = (event: any) => {

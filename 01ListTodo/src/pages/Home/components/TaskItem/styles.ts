@@ -27,7 +27,7 @@ export const TaskItemContainer = styled.section`
     filter:brightness(2);
   }
 
-  &.checked{
+  &.disabled{
     filter:brightness(.9);
     cursor:default;
   }

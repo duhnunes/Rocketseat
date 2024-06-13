@@ -5,30 +5,43 @@ import { TaskItemContainer } from "./styles"
 import { Button } from "../Button"
 import { Checkbox } from "../Input/styles"
 import { useState } from "react"
+import { ItemTaskProps } from "../.."
 
-// interface TaskItemProps {
-//   content: string
-// }
+interface TaskItemProps extends ItemTaskProps{
+  onDeleteTaskItem: (itemTaskDelete: ItemTaskProps) => void
+}
 
-export const TaskItem = ({ content }: any) => {
-  const [isCheckedOpaqueParent, SetIsCheckedOpaqueParent] = useState(false);
+export const TaskItem = ({ content, onDeleteTaskItem, id }: TaskItemProps) => {
+  const [isCheckedOpaqueParent, setIsCheckedOpaqueParent] = useState(false);
 
   const handleCheckboxChange = (event: any) => {
-    SetIsCheckedOpaqueParent(event.target.checked);
+    setIsCheckedOpaqueParent(event.target.checked);
   }
+
+  const handleDeleteItemTask = () => {
+    onDeleteTaskItem({id, content})
+  }
+  
   return(
     <TaskItemContainer
-      className={!isCheckedOpaqueParent ? '' : 'checked'}
+      className={!isCheckedOpaqueParent ? '' : 'disabled'}
     >
-      <Checkbox type="checkbox" onChange={handleCheckboxChange} />
+      <Checkbox
+        type="checkbox"
+        onChange={handleCheckboxChange}
+      />
       { content &&
         content.map((line: any) => {
           if(line.type === 'paragraph'){
-            return <p>{line.text}</p>
+            return <p key={id}>{line.text}</p>
           }
         })
       }
-      <Button variant="ghost">
+      <Button
+        variant="ghost"
+        title="Deletar Task"
+        onClick={handleDeleteItemTask}
+      >
         <Trash size={24} />
       </Button>
     </TaskItemContainer>

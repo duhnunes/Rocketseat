@@ -6,6 +6,7 @@ interface ButtonProps {
   
   variant?: string
   type?: "button" | "submit" | undefined
+  title?: string
 
   onClick?: () => void
 }
