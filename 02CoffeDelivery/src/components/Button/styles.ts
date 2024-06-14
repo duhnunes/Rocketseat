@@ -38,6 +38,25 @@ const variantStyles = (theme: ThemeType, variant = 'primary') => ({
       background-color:${theme.purple};
     }
   `,
+  select: css`
+    background-color:${theme["base-button"]};
+    color:${theme["base-text"]};
+    gap: 0.75rem;
+
+    & svg{
+      color:${theme.purple};
+    }
+
+    &:hover{
+      background-color:${theme["base-hover"]};
+      color:${theme["base-subtitle"]};
+    }
+
+    &:focus, :focus-within, :active, ::selection, .active{
+      background-color:${theme["purple-light"]};
+      outline:1px solid ${theme.purple};
+    }
+  `,
 }[variant])
 
 interface VariantProps{
@@ -58,6 +77,14 @@ export const ButtonBase = styled.button<VariantProps>`
   color:${(props) => props.theme.white};
   text-transform:uppercase;
 
+  &:active{
+    translate:-1px 1px;
+  }
+
+  &:focus{
+    outline:none;
+  }
+
   ${({ theme, variant }) => variantStyles(theme, variant)};
   cursor:pointer;
   user-select:none;
@@ -66,8 +93,4 @@ export const ButtonBase = styled.button<VariantProps>`
   -webkit-user-select:none;
   
   transition:background-color .25s, color .25s;
-
-  &:active{
-    translate:-1px 1px;
-  }
 `
