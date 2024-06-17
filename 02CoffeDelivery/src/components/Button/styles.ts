@@ -16,17 +16,17 @@ const variantStyles = (theme: ThemeType, variant = 'primary') => ({
 
     padding:.40625rem .5rem;
 
-    & svg{
-      color:${theme.purple}
-    }
-
     &:hover{
       background-color:${theme["base-hover"]};
       color:${theme["base-subtitle"]};
     }
 
-    & svg:hover{
-      color:${theme["purple-dark"]};
+    & svg{
+      color:${theme.purple};
+
+      &:hover{
+        color:${theme["purple-dark"]};
+      }
     }
   `,
   icon: css`
@@ -43,19 +43,38 @@ const variantStyles = (theme: ThemeType, variant = 'primary') => ({
     color:${theme["base-text"]};
     gap: 0.75rem;
 
-    & svg{
-      color:${theme.purple};
-    }
-
     &:hover{
       background-color:${theme["base-hover"]};
       color:${theme["base-subtitle"]};
     }
 
-    &:focus, :focus-within, :active, ::selection, .active{
+    &:focus, &:focus-within, &:active, &::selection, &.active{
       background-color:${theme["purple-light"]};
       outline:1px solid ${theme.purple};
     }
+
+    & svg{
+      color:${theme.purple};
+    }
+  `,
+  shop: css`
+    background-color:${theme["yellow-light"]};
+    color:${theme["yellow-dark"]};
+
+    padding: 0.5rem;
+
+    &:hover{
+      background-color:${theme["yellow-dark"]};
+      color:${theme["yellow-light"]}
+    }
+  `,
+  localization: css`
+    padding:0.5rem;
+
+    background-color:${(props) => props.theme["purple-light"]};
+    color:${(props) => props.theme["purple-dark"]};
+
+    text-transform:capitalize;
   `,
 }[variant])
 
@@ -92,5 +111,5 @@ export const ButtonBase = styled.button<VariantProps>`
   -moz-user-select:none;
   -webkit-user-select:none;
   
-  transition:background-color .25s, color .25s;
+  transition:background-color .25s, color .25s, translate .1s;
 `
