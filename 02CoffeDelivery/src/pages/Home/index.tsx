@@ -1,5 +1,6 @@
 import { CreditCard, ShoppingCartSimple, Trash } from "@phosphor-icons/react";
 import { Button } from "../../components/Button";
+import { Card } from "./components/Card";
 
 export function Home() {
   return(
@@ -14,6 +15,11 @@ export function Home() {
         <CreditCard size={16} />
         Cartão de crédito
       </Button>
+
+      <Card
+        src="/assets/coffee/Type=Expresso.png"
+        alt=""
+      />
 
     </>
   )
