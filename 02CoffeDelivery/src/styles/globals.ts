@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     line-height:1.5rem;
 
     color-scheme:light dark;
-    background-color:${(props) => props.theme.white};
+    background-color:${(props) => props.theme.background};
     color:${(props) => props.theme["base-text"]};
   }
 
