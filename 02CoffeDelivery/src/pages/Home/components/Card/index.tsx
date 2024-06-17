@@ -7,16 +7,17 @@ import { Badge } from "../../../../components/Badge"
 interface CardProps {
   src: string
   alt: string
+  title: string
 }
 
-export const Card = ({ src, alt }: CardProps) => {
+export const Card = ({ src, alt, title }: CardProps) => {
   return(
     <CardContainer>
         <img src={src} alt={alt} />
 
       <CardDescription>
         <Badge />
-        <h2>Expresso Tradicional</h2>
+        <h2>{title}</h2>
         <p>O tradicional café feitto com água quente e grãos moídos</p>
       </CardDescription>
 

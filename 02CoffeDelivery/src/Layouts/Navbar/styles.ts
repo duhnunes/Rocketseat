@@ -4,6 +4,8 @@ export const NavbarContainer = styled.nav`
   position:fixed;
   top:0;
 
+  background-color:${(props) => props.theme.background};
+
   display:flex;
   align-items:center;
   justify-content:space-between;

@@ -89,3 +89,19 @@ export const InfoItems = styled.article<VariantProps>`
     ${({ theme, variant }) => variantStyle(theme, variant)}
   }
 `
+
+export const MainContainer = styled.main`
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3.875rem;
+
+  padding:2rem 10rem;
+`
+
+export const ListCoffeeContainer = styled.section`
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:2rem;
+`
