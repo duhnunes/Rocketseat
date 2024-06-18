@@ -1,12 +1,35 @@
 import { Minus, Plus } from "@phosphor-icons/react"
-import { InputContainer } from "./styles"
+import { InputNumberContainer } from "./styles"
+import { useState } from "react"
 
 export const InputNumber = () => {
+  const [numberAmount, setNumberAmount] = useState(0);
+
+  const handlePlusNumber = () => {
+    const counter = (numberAmount + 1)
+    setNumberAmount(counter);
+  }
+
+  const handleMinusNumber = () => {
+    const counter = (numberAmount - 1)
+    if(numberAmount >= 1){
+      setNumberAmount(counter);
+    }
+  }
+
   return(
-    <InputContainer>
-      <Minus />
-      <input type="number" placeholder="1" min="1" max="10" />
-      <Plus />
-    </InputContainer>
+    <InputNumberContainer>
+      <Minus
+        onClick={handleMinusNumber}
+      />
+      <input
+        type="number"
+        value={numberAmount}
+        readOnly
+      />
+      <Plus
+        onClick={handlePlusNumber}
+      />
+    </InputNumberContainer>
   )
 }
