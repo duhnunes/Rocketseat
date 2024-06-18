@@ -7,7 +7,9 @@ export const InputNumber = () => {
 
   const handlePlusNumber = () => {
     const counter = (numberAmount + 1)
-    setNumberAmount(counter);
+    if(numberAmount <= 98){
+      setNumberAmount(counter);
+    }
   }
 
   const handleMinusNumber = () => {

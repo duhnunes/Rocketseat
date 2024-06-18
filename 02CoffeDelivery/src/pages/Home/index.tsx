@@ -71,7 +71,7 @@ export function Home() {
         <NavMain />
 
         <ListCoffeeContainer>
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={tradicional} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
@@ -83,7 +83,7 @@ export function Home() {
             <Card.Actions />
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={americano} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
@@ -95,7 +95,7 @@ export function Home() {
             <Card.Actions />
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={cremoso} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
@@ -107,7 +107,7 @@ export function Home() {
             <Card.Actions />
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={gelado} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
@@ -119,7 +119,7 @@ export function Home() {
             <Card.Actions />
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={comLeite} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
@@ -131,7 +131,7 @@ export function Home() {
             <Card.Actions />
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={latte} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
@@ -143,7 +143,7 @@ export function Home() {
             <Card.Actions />
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={capuccino} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
@@ -155,7 +155,7 @@ export function Home() {
             <Card.Actions />
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={macchiato} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
@@ -167,7 +167,7 @@ export function Home() {
             <Card.Actions />
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={mocaccino} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
@@ -179,7 +179,7 @@ export function Home() {
             <Card.Actions />
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={chocolateQuente} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
@@ -191,7 +191,7 @@ export function Home() {
             <Card.Actions />
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={cubano} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
@@ -203,7 +203,7 @@ export function Home() {
             <Card.Actions />
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={havaiano} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
@@ -215,7 +215,7 @@ export function Home() {
             <Card.Actions />
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={arabe} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
@@ -227,7 +227,7 @@ export function Home() {
             <Card.Actions />
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root variant="shopping">
             <Card.Img src={irlandes} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />

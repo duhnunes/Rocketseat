@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
-import { ThemeType } from "../../@types/styles";
 
-const variantStyle = (theme: ThemeType, variant = 'shopping') => ({
+const variantStyle = (variant = 'shopping') => ({
   shopping: css`
     flex-direction:column;
     align-items:center;
@@ -44,7 +43,7 @@ export const CardContainer = styled.section<CardContainerProps>`
 
   background-color:${(props) => props.theme["base-card"]};
 
-  ${({ theme, variant }) => variantStyle(theme, variant)};
+  ${({ variant }) => variantStyle(variant)};
 `
 
 export const CardDescription = styled.article`
