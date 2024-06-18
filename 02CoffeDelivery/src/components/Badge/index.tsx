@@ -1,9 +1,13 @@
 import { BadgeContainer } from "./styles"
 
-export const Badge = () => {
+interface BadgeProps {
+  text: string
+}
+
+export const Badge = ({text}: BadgeProps) => {
   return(
     <BadgeContainer>
-      Tradicional
+      {text}
     </BadgeContainer>
   )
 }

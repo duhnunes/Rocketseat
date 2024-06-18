@@ -1,0 +1,112 @@
+import styled, { css } from "styled-components";
+import { ThemeType } from "../../@types/styles";
+
+const variantStyle = (theme: ThemeType, variant = 'shopping') => ({
+  shopping: css`
+    flex-direction:column;
+    align-items:center;
+    
+    margin:0.375rem;
+    margin-top:1.5625rem;
+    width:16rem;
+    height:19.375rem;
+
+    border-top-left-radius:6px;
+    border-top-right-radius:36px;
+    border-bottom-left-radius:36px;
+    border-bottom-right-radius:6px;
+
+    img{
+      margin-top:-1.5rem;
+      margin-bottom:0.75rem;
+    }
+  `,
+  cart: css`
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:1.25rem;
+    
+    padding:0.5rem 0.25rem;
+
+    img{
+      width:64px;
+      height:64px;
+    }
+  `,
+}[variant])
+
+interface CardContainerProps {
+  variant?: string
+}
+
+export const CardContainer = styled.section<CardContainerProps>`
+  display:flex;
+
+  background-color:${(props) => props.theme["base-card"]};
+
+  ${({ theme, variant }) => variantStyle(theme, variant)};
+`
+
+export const CardDescription = styled.article`
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 0.5rem;
+
+  padding:0 0.5rem;
+  
+  h2{
+    margin-top:1rem;
+    font:${(props) => props.theme["title-s"]};
+  }
+
+  p{
+    font:${(props) => props.theme["text-s"]};
+    color:${(props) => props.theme["base-label"]};
+    text-align:center;
+  }
+`
+
+export const CardBadgeContainer = styled.article`
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:0 0.5rem;
+  gap:0.25rem;
+`
+
+export const CardActionsContainer = styled.article`
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  width:100%;
+  padding:0 1.5rem 1.25rem;
+`
+
+export const CardPrice = styled.div`
+  display:flex;
+  align-items:center;
+  gap: 0.25rem;
+
+  color:${(props) => props.theme["base-text"]};
+
+  span{
+    font:${(props) => props.theme["text-s"]};
+    margin-top:0.25rem;
+    text-transform:uppercase;
+  }
+
+  span + span{
+    font:${(props) => props.theme["title-m"]};
+    margin-top:0;
+  }
+`
+
+export const CardCounter = styled.div`
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+`

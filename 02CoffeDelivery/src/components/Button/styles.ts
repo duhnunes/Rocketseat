@@ -92,7 +92,7 @@ export const ButtonBase = styled.button<VariantProps>`
   border-radius:6px;
 
   padding:1rem;
-  
+
   color:${(props) => props.theme.white};
   text-transform:uppercase;
 

@@ -9,4 +9,9 @@ export const BadgeContainer = styled.span`
   text-transform:uppercase;
 
   border-radius:9999px;
+
+  user-select:none;
+  -ms-user-select:none;
+  -moz-user-select:none;
+  -webkit-user-select:none;
 `

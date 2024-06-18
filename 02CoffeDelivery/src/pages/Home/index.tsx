@@ -29,7 +29,8 @@ import cubano from '/assets/coffee/Type=Cubano.png';
 import havaiano from '/assets/coffee/Type=Havaiano.png';
 import arabe from '/assets/coffee/Type=Árabe.png';
 import irlandes from '/assets/coffee/Type=Irlandês.png';
-import { Card } from './components/Card';
+import { Card } from '../../components/Card';
+import { Badge } from '../../components/Badge';
 
 export function Home() {
   return(
@@ -70,76 +71,174 @@ export function Home() {
         <NavMain />
 
         <ListCoffeeContainer>
-          <Card
-            src={tradicional}
-            alt=""
-            title="Expresso Tradicional"
-          />
-          <Card
-            src={americano}
-            alt=""
-            title="Expresso Americano"
-          />
-          <Card
-            src={cremoso}
-            alt=""
-            title="Expresso Cremoso"
-          />
-          <Card
-            src={gelado}
-            alt=""
-            title="Expresso Gelado"
-          />
-          <Card
-            src={comLeite}
-            alt=""
-            title="Café com Leite"
-          />
-          <Card
-            src={latte}
-            alt=""
-            title="Latte"
-          />
-          <Card
-            src={capuccino}
-            alt=""
-            title="Capuccino"
-          />
-          <Card
-            src={macchiato}
-            alt=""
-            title="Macchiato"
-          />
-          <Card
-            src={mocaccino}
-            alt=""
-            title="Mocaccino"
-          />
-          <Card
-            src={chocolateQuente}
-            alt=""
-            title="Chocolate Quente"
-          />
-          <Card
-            src={cubano}
-            alt=""
-            title="Cubano"
-          />
-          <Card
-            src={havaiano}
-            alt=""
-            title="Havaiano"
-          />
-          <Card
-            src={arabe}
-            alt=""
-            title="Árabe"
-          />
-          <Card
-            src={irlandes}
-            alt=""
-            title="Irlandês"
-          />
+          <Card.Root>
+            <Card.Img src={tradicional} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Expresso Tradicional"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Img src={americano} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Expresso Americano"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Img src={cremoso} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Expresso Cremoso"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Img src={gelado} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Expresso Gelado"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Img src={comLeite} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Café com Leite"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Img src={latte} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Latte"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Img src={capuccino} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Capuccino"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Img src={macchiato} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Macchiato"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Img src={mocaccino} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Mocaccino"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Img src={chocolateQuente} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Chocolate Quente"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Img src={cubano} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Cubano"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Img src={havaiano} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Havaiano"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Img src={arabe} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Árabe"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
+          <Card.Root>
+            <Card.Img src={irlandes} alt="" />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Content
+              title="Irlandês"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
+            <Card.Actions />
+          </Card.Root>
+
         </ListCoffeeContainer>
       </MainContainer>
     </>

@@ -102,6 +102,7 @@ export const MainContainer = styled.main`
 export const ListCoffeeContainer = styled.section`
   width:100%;
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
+  grid-template-columns:repeat(auto-fill, 16rem);
+  justify-content:space-between;
   gap:2rem;
 `
