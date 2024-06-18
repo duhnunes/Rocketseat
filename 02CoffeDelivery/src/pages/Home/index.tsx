@@ -13,7 +13,6 @@ import {
 import { Navbar } from "../../Layouts/Navbar";
 import { Coffee, Package, ShoppingCartSimple, Timer } from '@phosphor-icons/react';
 import { NavMain } from './components/MainHeader';
-import { Card } from './components/Card';
 
 // Images
 import tradicional from '/assets/coffee/Type=Expresso.png';
@@ -30,6 +29,7 @@ import cubano from '/assets/coffee/Type=Cubano.png';
 import havaiano from '/assets/coffee/Type=Havaiano.png';
 import arabe from '/assets/coffee/Type=Árabe.png';
 import irlandes from '/assets/coffee/Type=Irlandês.png';
+import { Card } from './components/Card';
 
 export function Home() {
   return(

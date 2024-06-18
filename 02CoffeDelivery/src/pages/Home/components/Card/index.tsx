@@ -1,8 +1,15 @@
 import { ShoppingCartSimple } from "@phosphor-icons/react"
-import { Button } from "../../../../components/Button"
-import { InputNumber } from "../../../../components/InputNumber"
-import { CardActions, CardContainer, CardCounter, CardDescription, CardPrice } from "./styles"
+
+import {
+  CardActions,
+  CardContainer,
+  CardCounter,
+  CardDescription,
+  CardPrice
+} from "./styles"
 import { Badge } from "../../../../components/Badge"
+import { InputNumber } from "../../../../components/InputNumber"
+import { Button } from "../../../../components/Button"
 
 interface CardProps {
   src: string

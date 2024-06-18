@@ -35,5 +35,5 @@ export const defaultTheme = {
 
   'tag': 'normal 700 0.625rem/130% "Roboto", sans-serif',
   'button-g': 'normal 700 0.875rem/160% "Roboto", sans-serif',
-  'button-m': 'normal 400 0.75rem/160% "Roboto", sans-serif',
+  'button-s': 'normal 400 0.75rem/160% "Roboto", sans-serif',
 }
