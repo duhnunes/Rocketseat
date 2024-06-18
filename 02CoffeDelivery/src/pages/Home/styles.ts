@@ -78,7 +78,7 @@ export const InfoItems = styled.article<VariantProps>`
   gap:0.75rem;
 
   svg{
-    color:white;
+    color:${(props) => props.theme.background};
     
     padding:0.5rem;
     width:2rem;

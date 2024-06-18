@@ -5,7 +5,7 @@ export const CheckoutContainer = styled.main`
   display:flex;
   align-items:flex-start;
   justify-content:center;
-  gap:2rem;
+  gap:6.375rem;
 
   margin-top:6.25rem;
 `
@@ -163,4 +163,88 @@ export const TotalItem = styled.div`
     font:${(props) => props.theme["text-l"]};
     color:${(props) => props.theme["base-subtitle"]};
   }
+`
+
+export const PanelContainer = styled.div`
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:2.5rem;
+
+  h2{
+    font:${(props) => props.theme["title-l"]};
+    color:${(props) => props.theme["yellow-dark"]};
+  }
+  span{
+    font:${(props) => props.theme["text-l"]};
+    color:${(props) => props.theme["base-subtitle"]};
+  }
+`
+
+export const OrderInfoContainer = styled.section`
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+  position:relative;
+  
+  width:32.875rem;
+  padding:2.5rem;
+  
+  border-top-left-radius:6px;
+  border-top-right-radius:36px;
+  border-bottom-left-radius:36px;
+  border-bottom-right-radius:6px;
+  background-color:${(props) => props.theme.background};
+
+  &:before{
+    content:'';
+    position:absolute;
+    top:-1px;
+    bottom:-1px;
+    left:-1px;
+    right:-1px;
+    z-index:-1;
+    background: linear-gradient(45deg, #dbac2c, #8047f8);
+    border-radius:inherit;
+  }
+`
+
+const OrderVariantStyle = (theme: ThemeType, variant = '') => ({
+  primary: css`
+    background-color:${theme.purple};
+  `,
+  secondary: css`
+    background-color:${theme.yellow};
+  `,
+  third: css`
+    background-color:${theme["yellow-dark"]};
+  `,
+}[variant])
+
+interface OrderInfoItemProps {
+  variant: string
+}
+
+export const OrderInfoItem = styled.article<OrderInfoItemProps>`
+  display:flex;
+  align-items:flex-start;
+  gap:0.75rem;
+
+  svg{
+    color:${(props) => props.theme.background};
+    
+    padding:0.5rem;
+    width:2rem;
+    height:2rem;
+
+    border-radius:50%;
+    
+    ${({ theme, variant }) => OrderVariantStyle(theme, variant)};
+  }
+`
+
+export const MotoboyContainer = styled.div`
+  display:flex;
+  align-self:flex-end;
+  justify-content:center;
 `
