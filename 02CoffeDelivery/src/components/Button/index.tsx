@@ -7,6 +7,8 @@ interface ButtonProps{
   type?: "button" | "submit" | undefined
   variant?: string
   title?: string
+
+  onClick?: () => void
 }
 
 export const Button = ({

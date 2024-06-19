@@ -7,19 +7,14 @@ import { Card } from "./components/Card";
 
 import coffee from '/assets/coffee/Type=Expresso.png';
 import motoboy from '/assets/Illustration.png';
+import { PatternFormat, PatternFormatProps } from "react-number-format";
 
-export function Checkout() {
+export function Checkout(props: Partial<PatternFormatProps>) {
   const [isSuccess, setIsSuccess] = useState(false);
-  const [cep, setCep] = useState('');
 
-  const handleChange = (e :any) => {
-    let value = e.target.value;
-    value = value.replace(/\D/g, '');
-    if (value.length > 5) {
-      value = `${value.slice(0, 5)}-${value.slice(5, 8)}`;
-    }
-    setCep(value);
-  };
+  const handleConfirmOrder = () => {
+    setIsSuccess((prev) => !prev)
+  }
 
   return(
     <>
@@ -39,12 +34,12 @@ export function Checkout() {
             </RequestHeader>
 
             <RequestForm>
-              <input
-                type="tel"
-                name="cep"
-                value={cep}
-                onChange={handleChange}
+              <PatternFormat
+                {...props}
+                format="#####-###"
+                mask="_"
                 placeholder="CEP"
+                type="tel"
               />
               <input
                 type="text"
@@ -137,7 +132,7 @@ export function Checkout() {
               </TotalItem>
             </TotalContainer>
 
-            <Button variant="primary">
+            <Button variant="primary" onClick={handleConfirmOrder}>
               Confirmar Pedido
             </Button>
           </RequestCard>

@@ -18,9 +18,11 @@ export const Navbar = () => {
           <MapPin weight="fill" />
           Porto Alegre, RS
         </Button>
-        <Button variant="shop">
-          <ShoppingCartSimple  weight="fill" />
-        </Button>
+        <Link to="/checkout">
+          <Button variant="shop">
+            <ShoppingCartSimple  weight="fill" />
+          </Button>
+        </Link>
       </Information>
     </NavbarContainer>
   )
