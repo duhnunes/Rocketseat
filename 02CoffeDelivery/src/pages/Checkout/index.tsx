@@ -1,13 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Bank, CreditCard, CurrencyDollar, MapPin, Money, Timer } from "@phosphor-icons/react";
-import { RequestContainer, CheckoutContainer, RequestCard, RequestHeader, RequestForm, InputContainer, RequestButtons, SelectedProductContainer, TotalContainer, TotalItem, PanelContainer, OrderInfoContainer, OrderInfoItem, MotoboyContainer } from "./styles";
 import { useState } from "react";
+import { PatternFormat, PatternFormatProps } from "react-number-format";
+
+import { Bank, CreditCard, CurrencyDollar, MapPin, Money, Timer } from "@phosphor-icons/react";
+
+import { RequestContainer, CheckoutContainer, RequestCard, RequestHeader, RequestForm, InputContainer, RequestButtons, SelectedProductContainer, TotalContainer, TotalItem, PanelContainer, OrderInfoContainer, OrderInfoItem, MotoboyContainer } from "./styles";
 import { Button } from "../../components/Button";
-import { Card } from "./components/Card";
+import { Card } from '../../components/Card';
 
 import coffee from '/assets/coffee/Type=Expresso.png';
 import motoboy from '/assets/Illustration.png';
-import { PatternFormat, PatternFormatProps } from "react-number-format";
+import cremoso from '/assets/coffee/Type=Expresso Cremoso.png';
+
 
 export function Checkout(props: Partial<PatternFormatProps>) {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -113,10 +117,22 @@ export function Checkout(props: Partial<PatternFormatProps>) {
         <SelectedProductContainer>
           <h2>Cafés selecionados</h2>
           <RequestCard>
-            <Card src={coffee} />
+
+            <Card.Root variant="cart">
+              <Card.Img src={coffee} alt="" />
+              <Card.Cart.Info title="Expresso tradicional">
+              </Card.Cart.Info>
+              <Card.Price value="9,90" />
+            </Card.Root>
             <hr />
-            <Card src={coffee} />
+              
+            <Card.Root variant="cart">
+              <Card.Img src={cremoso} alt="" />
+              <Card.Cart.Info title="Expresso tradicional" />
+              <Card.Price value="9,90" />
+            </Card.Root>
             <hr />
+
             <TotalContainer>
               <TotalItem>
                 <span>Total de itens</span>

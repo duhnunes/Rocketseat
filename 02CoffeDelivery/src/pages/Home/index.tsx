@@ -13,6 +13,8 @@ import {
 import { Navbar } from "../../Layouts/Navbar";
 import { Coffee, Package, ShoppingCartSimple, Timer } from '@phosphor-icons/react';
 import { NavMain } from './components/MainHeader';
+import { Card } from '../../components/Card';
+import { Badge } from '../../components/Badge';
 
 // Images
 import tradicional from '/assets/coffee/Type=Expresso.png';
@@ -29,8 +31,9 @@ import cubano from '/assets/coffee/Type=Cubano.png';
 import havaiano from '/assets/coffee/Type=Havaiano.png';
 import arabe from '/assets/coffee/Type=Árabe.png';
 import irlandes from '/assets/coffee/Type=Irlandês.png';
-import { Card } from '../../components/Card';
-import { Badge } from '../../components/Badge';
+import { InputNumber } from '../../components/InputNumber';
+import { Button } from '../../components/Button';
+
 
 export function Home() {
   return(
@@ -68,6 +71,7 @@ export function Home() {
       </IntroContainer>
 
       <MainContainer>
+      
         <NavMain />
 
         <ListCoffeeContainer>
@@ -76,11 +80,19 @@ export function Home() {
             <Card.Badges>
               <Badge text="Tradicional" />
             </Card.Badges>
-            <Card.Content
+            <Card.Description
               title="Expresso Tradicional"
               text="O tradicional café feito com água quente e grãos moídos"
             />
-            <Card.Actions />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
           <Card.Root variant="shopping">
@@ -88,35 +100,61 @@ export function Home() {
             <Card.Badges>
               <Badge text="Tradicional" />
             </Card.Badges>
-            <Card.Content
+            <Card.Description
               title="Expresso Americano"
               text="O tradicional café feito com água quente e grãos moídos"
             />
-            <Card.Actions />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
           <Card.Root variant="shopping">
             <Card.Img src={cremoso} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Content
-              title="Expresso Cremoso"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Actions />
+              <Card.Badges>
+                <Badge text="Tradicional" />
+              </Card.Badges>
+              <Card.Description
+                title="Café Cremoso"
+                text="O tradicional café feito com água quente e grãos moídos"
+              />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
           <Card.Root variant="shopping">
             <Card.Img src={gelado} alt="" />
             <Card.Badges>
               <Badge text="Tradicional" />
+              <Badge text="Gelado" />
+              <Badge text="Especial" />
             </Card.Badges>
-            <Card.Content
+            <Card.Description
               title="Expresso Gelado"
               text="O tradicional café feito com água quente e grãos moídos"
             />
-            <Card.Actions />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
           <Card.Root variant="shopping">
@@ -124,11 +162,19 @@ export function Home() {
             <Card.Badges>
               <Badge text="Tradicional" />
             </Card.Badges>
-            <Card.Content
+            <Card.Description
               title="Café com Leite"
               text="O tradicional café feito com água quente e grãos moídos"
             />
-            <Card.Actions />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
           <Card.Root variant="shopping">
@@ -136,11 +182,19 @@ export function Home() {
             <Card.Badges>
               <Badge text="Tradicional" />
             </Card.Badges>
-            <Card.Content
+            <Card.Description
               title="Latte"
               text="O tradicional café feito com água quente e grãos moídos"
             />
-            <Card.Actions />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
           <Card.Root variant="shopping">
@@ -148,11 +202,19 @@ export function Home() {
             <Card.Badges>
               <Badge text="Tradicional" />
             </Card.Badges>
-            <Card.Content
+            <Card.Description
               title="Capuccino"
               text="O tradicional café feito com água quente e grãos moídos"
             />
-            <Card.Actions />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
           <Card.Root variant="shopping">
@@ -160,11 +222,19 @@ export function Home() {
             <Card.Badges>
               <Badge text="Tradicional" />
             </Card.Badges>
-            <Card.Content
+            <Card.Description
               title="Macchiato"
               text="O tradicional café feito com água quente e grãos moídos"
             />
-            <Card.Actions />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
           <Card.Root variant="shopping">
@@ -172,11 +242,19 @@ export function Home() {
             <Card.Badges>
               <Badge text="Tradicional" />
             </Card.Badges>
-            <Card.Content
+            <Card.Description
               title="Mocaccino"
               text="O tradicional café feito com água quente e grãos moídos"
             />
-            <Card.Actions />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
           <Card.Root variant="shopping">
@@ -184,11 +262,19 @@ export function Home() {
             <Card.Badges>
               <Badge text="Tradicional" />
             </Card.Badges>
-            <Card.Content
+            <Card.Description
               title="Chocolate Quente"
               text="O tradicional café feito com água quente e grãos moídos"
             />
-            <Card.Actions />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
           <Card.Root variant="shopping">
@@ -196,11 +282,19 @@ export function Home() {
             <Card.Badges>
               <Badge text="Tradicional" />
             </Card.Badges>
-            <Card.Content
+            <Card.Description
               title="Cubano"
               text="O tradicional café feito com água quente e grãos moídos"
             />
-            <Card.Actions />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
           <Card.Root variant="shopping">
@@ -208,11 +302,19 @@ export function Home() {
             <Card.Badges>
               <Badge text="Tradicional" />
             </Card.Badges>
-            <Card.Content
+            <Card.Description
               title="Havaiano"
               text="O tradicional café feito com água quente e grãos moídos"
             />
-            <Card.Actions />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
           <Card.Root variant="shopping">
@@ -220,11 +322,19 @@ export function Home() {
             <Card.Badges>
               <Badge text="Tradicional" />
             </Card.Badges>
-            <Card.Content
+            <Card.Description
               title="Árabe"
               text="O tradicional café feito com água quente e grãos moídos"
             />
-            <Card.Actions />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
           <Card.Root variant="shopping">
@@ -232,11 +342,19 @@ export function Home() {
             <Card.Badges>
               <Badge text="Tradicional" />
             </Card.Badges>
-            <Card.Content
+            <Card.Description
               title="Irlandês"
               text="O tradicional café feito com água quente e grãos moídos"
             />
-            <Card.Actions />
+            <Card.Footer>
+              <Card.Price value="9,90" />
+              <Card.Actions>
+                <InputNumber />
+                <Button variant='icon'>
+                  <ShoppingCartSimple size={16} weight="fill"  />
+                </Button>
+              </Card.Actions>
+            </Card.Footer>
           </Card.Root>
 
         </ListCoffeeContainer>

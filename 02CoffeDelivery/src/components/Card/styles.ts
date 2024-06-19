@@ -19,6 +19,17 @@ const variantStyle = (variant = 'shopping') => ({
       margin-top:-1.5rem;
       margin-bottom:0.75rem;
     }
+
+    .price > span{
+      font:${(props) => props.theme["text-s"]};
+      margin-top:0.25rem;
+      text-transform:uppercase;
+    }
+
+    .price > span + span{
+      font:${(props) => props.theme["title-m"]};
+      margin-top:0;
+    }
   `,
   cart: css`
     align-items:flex-start;
@@ -30,6 +41,11 @@ const variantStyle = (variant = 'shopping') => ({
     img{
       width:64px;
       height:64px;
+    }
+
+    span{
+      font:${(props) => props.theme["text-m"]};
+      color:${(props) => props.theme["base-text"]};
     }
   `,
 }[variant])
@@ -46,7 +62,7 @@ export const CardContainer = styled.section<CardContainerProps>`
   ${({ variant }) => variantStyle(variant)};
 `
 
-export const CardDescription = styled.article`
+export const CardDescriptionContainer = styled.article`
   flex:1;
   display:flex;
   flex-direction:column;
@@ -76,7 +92,7 @@ export const CardBadgeContainer = styled.article`
   gap:0.25rem;
 `
 
-export const CardActionsContainer = styled.article`
+export const CardFooterContainer = styled.article`
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -85,26 +101,32 @@ export const CardActionsContainer = styled.article`
   padding:0 1.5rem 1.25rem;
 `
 
-export const CardPrice = styled.div`
+export const CardPriceContainer = styled.div`
   display:flex;
   align-items:center;
   gap: 0.25rem;
 
   color:${(props) => props.theme["base-text"]};
+`
 
-  span{
-    font:${(props) => props.theme["text-s"]};
-    margin-top:0.25rem;
-    text-transform:uppercase;
-  }
+export const CardActionsContainer = styled.div`
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+`
 
-  span + span{
-    font:${(props) => props.theme["title-m"]};
-    margin-top:0;
+export const InfoContainer = styled.div`
+  display:flex;
+  flex-direction:column;
+  gap:0.5rem;
+
+  h3{
+    font:${(props) => props.theme["text-m"]};
+    color:${(props) => props.theme["base-subtitle"]};
   }
 `
 
-export const CardCounter = styled.div`
+export const InfoProductButtons = styled.div`
   display:flex;
   align-items:center;
   gap:0.5rem;

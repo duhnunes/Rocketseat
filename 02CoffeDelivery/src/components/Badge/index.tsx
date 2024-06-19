@@ -6,7 +6,7 @@ interface BadgeProps {
 
 export const Badge = ({text}: BadgeProps) => {
   return(
-    <BadgeContainer>
+    <BadgeContainer className="badge">
       {text}
     </BadgeContainer>
   )
