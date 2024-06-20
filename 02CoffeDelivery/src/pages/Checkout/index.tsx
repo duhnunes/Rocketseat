@@ -4,7 +4,7 @@ import { PatternFormat, PatternFormatProps } from "react-number-format";
 
 import { Bank, CreditCard, CurrencyDollar, MapPin, Money, Timer } from "@phosphor-icons/react";
 
-import { RequestContainer, CheckoutContainer, RequestCard, RequestHeader, RequestForm, InputContainer, RequestButtons, SelectedProductContainer, TotalContainer, TotalItem, PanelContainer, OrderInfoContainer, OrderInfoItem, MotoboyContainer } from "./styles";
+import { RequestContainer, CheckoutContainer, RequestCard, RequestHeader, RequestForm, InputContainer, RequestButtons, SelectedProductContainer, TotalContainer, TotalItem, PanelContainer, OrderInfoContainer, OrderInfoItem, MotoboyContainer, RequestCardItems } from "./styles";
 import { Button } from "../../components/Button";
 import { Card } from '../../components/Card';
 
@@ -118,19 +118,42 @@ export function Checkout(props: Partial<PatternFormatProps>) {
             <h2>Cafés selecionados</h2>
             <RequestCard>
 
-              <Card.Root variant="cart">
-                <Card.Img src={coffee} alt="" />
-                <Card.Cart.Info title="Expresso tradicional" />
-                <Card.Price value="9,90" />
-              </Card.Root>
-              <hr />
+              <RequestCardItems>
+                <Card.Root variant="cart">
+                  <Card.Img src={coffee} alt="" />
+                  <Card.Cart.Info title="Expresso tradicional" />
+                  <Card.Price value="9,90" />
+                </Card.Root>
+                <hr />
               
-              <Card.Root variant="cart">
-                <Card.Img src={cremoso} alt="" />
-                <Card.Cart.Info title="Expresso tradicional" />
-                <Card.Price value="9,90" />
-              </Card.Root>
-              <hr />
+                <Card.Root variant="cart">
+                  <Card.Img src={cremoso} alt="" />
+                  <Card.Cart.Info title="Expresso tradicional" />
+                  <Card.Price value="9,90" />
+                </Card.Root>
+                <hr />
+              
+                <Card.Root variant="cart">
+                  <Card.Img src={cremoso} alt="" />
+                  <Card.Cart.Info title="Expresso tradicional" />
+                  <Card.Price value="9,90" />
+                </Card.Root>
+                <hr />
+              
+                <Card.Root variant="cart">
+                  <Card.Img src={cremoso} alt="" />
+                  <Card.Cart.Info title="Expresso tradicional" />
+                  <Card.Price value="9,90" />
+                </Card.Root>
+                <hr />
+              
+                <Card.Root variant="cart">
+                  <Card.Img src={cremoso} alt="" />
+                  <Card.Cart.Info title="Expresso tradicional" />
+                  <Card.Price value="9,90" />
+                </Card.Root>
+                <hr />
+              </RequestCardItems>
 
               <TotalContainer>
                 <TotalItem>

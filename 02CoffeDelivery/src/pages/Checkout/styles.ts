@@ -33,6 +33,7 @@ export const RequestCard = styled.section`
   background-color:${(props) => props.theme["base-card"]};
 
   width:100%;
+  max-height:34rem;
   padding:2.5rem;
   margin-bottom:0.75rem;
 
@@ -40,6 +41,26 @@ export const RequestCard = styled.section`
 
   hr{
     border:1px solid ${(props) => props.theme["base-button"]};
+  }
+`
+
+export const RequestCardItems = styled.div`
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap: 0.5rem;
+
+  width:101%;
+  overflow-y:scroll;
+  
+  &::-webkit-scrollbar{
+    width:0.25rem;
+  }
+  
+  &::-webkit-scrollbar-thumb{
+    background-color:${(props) => props.theme["base-subtitle"]};
+    border-radius:999px;
+    opacity:.5;
   }
 `
 
