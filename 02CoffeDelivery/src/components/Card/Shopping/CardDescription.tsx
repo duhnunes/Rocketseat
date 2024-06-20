@@ -1,4 +1,4 @@
-import { CardDescriptionContainer } from "./styles"
+import { CardDescriptionContainer } from "../styles"
 
 interface CardDescriptionContainerProps {
   title?: string

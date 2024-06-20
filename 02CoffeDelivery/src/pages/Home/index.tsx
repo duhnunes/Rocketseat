@@ -10,11 +10,13 @@ import {
   ListCoffeeContainer,
 } from "./styles";
 
-import { Navbar } from "../../Layouts/Navbar";
+import { Navbar } from '../../components/Navbar';
 import { Coffee, Package, ShoppingCartSimple, Timer } from '@phosphor-icons/react';
 import { NavMain } from './components/MainHeader';
 import { Card } from '../../components/Card';
 import { Badge } from '../../components/Badge';
+import { InputNumber } from '../../components/InputNumber';
+import { Button } from '../../components/Button';
 
 // Images
 import tradicional from '/assets/coffee/Type=Expresso.png';
@@ -31,8 +33,7 @@ import cubano from '/assets/coffee/Type=Cubano.png';
 import havaiano from '/assets/coffee/Type=Havaiano.png';
 import arabe from '/assets/coffee/Type=Árabe.png';
 import irlandes from '/assets/coffee/Type=Irlandês.png';
-import { InputNumber } from '../../components/InputNumber';
-import { Button } from '../../components/Button';
+
 
 
 export function Home() {
@@ -117,13 +118,13 @@ export function Home() {
 
           <Card.Root variant="shopping">
             <Card.Img src={cremoso} alt="" />
-              <Card.Badges>
-                <Badge text="Tradicional" />
-              </Card.Badges>
-              <Card.Description
-                title="Café Cremoso"
-                text="O tradicional café feito com água quente e grãos moídos"
-              />
+            <Card.Badges>
+              <Badge text="Tradicional" />
+            </Card.Badges>
+            <Card.Description
+              title="Café Cremoso"
+              text="O tradicional café feito com água quente e grãos moídos"
+            />
             <Card.Footer>
               <Card.Price value="9,90" />
               <Card.Actions>

@@ -1,5 +1,5 @@
-import { CardActionsContainer } from "./styles"
 import { ReactNode } from "react"
+import { CardActionsContainer } from "../styles"
 
 interface CardActionsProps {
   children: ReactNode

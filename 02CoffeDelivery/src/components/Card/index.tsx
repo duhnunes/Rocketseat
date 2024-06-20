@@ -2,12 +2,12 @@ import { CardRoot } from "./CardRoot"
 import { CardImage } from "./CardImage"
 
 
-import { CardDescription } from "./CardDescription"
-import { CardBadge } from "./CardBadge"
 import { CardFooter } from "./CardFooter"
 import { CardPrice } from "./CardPrice"
-import { CardActions } from "./CardActions"
 import { CardCartInfo } from "./Cart/CardCartInfo"
+import { CardDescription } from "./Shopping/CardDescription"
+import { CardBadge } from "./Shopping/CardBadge"
+import { CardActions } from "./Shopping/CardActions"
 
 
 export const Card = {

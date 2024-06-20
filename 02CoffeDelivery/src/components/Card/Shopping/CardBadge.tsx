@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { CardBadgeContainer } from "./styles"
+import { CardBadgeContainer } from "../styles"
 
 interface CardBadgeProps {
   children: ReactNode
