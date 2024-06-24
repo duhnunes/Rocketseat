@@ -68,10 +68,12 @@ export function Home() {
         <ListCoffeeContainer>
           {products.map((item) => {
             return(
-              <Card.Root variant="shopping">
+              <Card.Root variant="shopping" key={item.id}>
                 <Card.Img src={item.img} alt={item.alt} />
                 <Card.Badges>
-                  <Badge text={item.tag.Tradicional} />
+                  {item.tag.map((tagItem) => {
+                    return <Badge key={item.id} text={tagItem} />
+                  })}
                 </Card.Badges>
                 <Card.Description
                   title={item.description.title}
