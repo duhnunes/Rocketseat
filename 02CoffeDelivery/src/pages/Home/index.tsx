@@ -1,4 +1,6 @@
-import infoImgCafe from '/assets/Imagem.png';
+import { useState } from 'react';
+
+import { coffeeList } from '../../data/ListOfCoffee';
 
 import {
   InfoItems,
@@ -18,25 +20,13 @@ import { Badge } from '../../components/Badge';
 import { InputNumber } from '../../components/InputNumber';
 import { Button } from '../../components/Button';
 
+
 // Images
-import tradicional from '/assets/coffee/Type=Expresso.png';
-import americano from '/assets/coffee/Type=Americano.png';
-import cremoso from '/assets/coffee/Type=Expresso Cremoso.png';
-import gelado from '/assets/coffee/Type=Café Gelado.png';
-import comLeite from '/assets/coffee/Type=Café com Leite.png';
-import latte from '/assets/coffee/Type=Latte.png';
-import capuccino from '/assets/coffee/Type=Capuccino.png';
-import macchiato from '/assets/coffee/Type=Macchiato.png';
-import mocaccino from '/assets/coffee/Type=Mochaccino.png';
-import chocolateQuente from '/assets/coffee/Type=Chocolate Quente.png';
-import cubano from '/assets/coffee/Type=Cubano.png';
-import havaiano from '/assets/coffee/Type=Havaiano.png';
-import arabe from '/assets/coffee/Type=Árabe.png';
-import irlandes from '/assets/coffee/Type=Irlandês.png';
-
-
+import infoImgCafe from '/assets/Imagem.png';
 
 export function Home() {
+  const [products, setProducts] = useState(coffeeList);
+  
   return(
     <>
       <Navbar />
@@ -76,288 +66,29 @@ export function Home() {
         <NavMain />
 
         <ListCoffeeContainer>
-          <Card.Root variant="shopping">
-            <Card.Img src={tradicional} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Description
-              title="Expresso Tradicional"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root variant="shopping">
-            <Card.Img src={americano} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Description
-              title="Expresso Americano"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root variant="shopping">
-            <Card.Img src={cremoso} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Description
-              title="Café Cremoso"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root variant="shopping">
-            <Card.Img src={gelado} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-              <Badge text="Gelado" />
-              <Badge text="Especial" />
-            </Card.Badges>
-            <Card.Description
-              title="Expresso Gelado"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root variant="shopping">
-            <Card.Img src={comLeite} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Description
-              title="Café com Leite"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root variant="shopping">
-            <Card.Img src={latte} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Description
-              title="Latte"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root variant="shopping">
-            <Card.Img src={capuccino} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Description
-              title="Capuccino"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root variant="shopping">
-            <Card.Img src={macchiato} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Description
-              title="Macchiato"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root variant="shopping">
-            <Card.Img src={mocaccino} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Description
-              title="Mocaccino"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root variant="shopping">
-            <Card.Img src={chocolateQuente} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Description
-              title="Chocolate Quente"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root variant="shopping">
-            <Card.Img src={cubano} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Description
-              title="Cubano"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root variant="shopping">
-            <Card.Img src={havaiano} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Description
-              title="Havaiano"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root variant="shopping">
-            <Card.Img src={arabe} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Description
-              title="Árabe"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
-          <Card.Root variant="shopping">
-            <Card.Img src={irlandes} alt="" />
-            <Card.Badges>
-              <Badge text="Tradicional" />
-            </Card.Badges>
-            <Card.Description
-              title="Irlandês"
-              text="O tradicional café feito com água quente e grãos moídos"
-            />
-            <Card.Footer>
-              <Card.Price value="9,90" />
-              <Card.Actions>
-                <InputNumber />
-                <Button variant='icon'>
-                  <ShoppingCartSimple size={16} weight="fill"  />
-                </Button>
-              </Card.Actions>
-            </Card.Footer>
-          </Card.Root>
-
+          {products.map((item) => {
+            return(
+              <Card.Root variant="shopping">
+                <Card.Img src={item.img} alt={item.alt} />
+                <Card.Badges>
+                  <Badge text={item.tag.Tradicional} />
+                </Card.Badges>
+                <Card.Description
+                  title={item.description.title}
+                  text={item.description.text}
+                />
+                <Card.Footer>
+                  <Card.Price value={item.price} />
+                  <Card.Actions>
+                    <InputNumber />
+                    <Button variant='icon'>
+                      <ShoppingCartSimple size={16} weight='fill' />
+                    </Button>
+                  </Card.Actions>
+                </Card.Footer>
+              </Card.Root>
+            )
+          })}
         </ListCoffeeContainer>
       </MainContainer>
     </>
