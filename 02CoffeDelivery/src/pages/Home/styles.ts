@@ -1,108 +1,88 @@
-import styled, { css } from "styled-components";
-import { ThemeType } from "../../@types/styles";
+import styled from 'styled-components'
 
-export const IntroContainer = styled.header`
-  display:flex;
-  align-items:center;
-  justify-content:space-around;
-  gap:3.5rem;
+import { mixins } from '../../styles/mixins'
 
-  margin-top:3.75rem;
-  padding:5.75rem 10rem;
-  width:100%;
-  height:544px;
+export const Hero = styled.section`
+  position: relative;
 
-  background:url('/assets/Background.png') center/100% no-repeat;
-
-  img{
-    width:29.75rem;
-    height:22.5rem;
+  img#hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-height: 544px;
+    width: 100vw;
+    object-fit: cover;
   }
 `
 
-export const IntroInformationContainer = styled.section`
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:4.125rem;
-`
+export const HeroContent = styled.div`
+  max-width: 1160px;
+  padding: 92px 20px;
+  margin: 0 auto;
 
-export const Title = styled.section`
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:1rem;
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+  justify-content: space-between;
 
-  max-width:36.75rem;
-
-  h1{
-    font:${(props) => props.theme["title-xl"]};
-    color:${(props) => props.theme["base-title"]};
-  }
-  
-  p{
-    font:${(props) => props.theme["text-l"]};
-    color:${(props) => props.theme["base-subtitle"]};
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 66px;
   }
 `
 
-export const ItemsContainer = styled.section`
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1.25rem;
-`
+export const Heading = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
-const variantStyle = (theme: ThemeType, variant='primary') => ({
-  'yellow-dark': css`
-    background-color:${theme["yellow-dark"]};
-  `,
-  gray: css`
-    background-color:${theme["base-text"]};
-  `,
-  yellow: css`
-    background-color:${theme.yellow};
-  `,
-  purple: css`
-    background-color:${theme.purple};
-  `,
-} [variant])
+  > h1 {
+    ${mixins.fonts.titleXL}
+    color: ${({ theme }) => theme.colors['base-title']}
+  }
 
-interface VariantProps{
-  variant: string
-}
-
-export const InfoItems = styled.article<VariantProps>`
-  display:flex;
-  align-items:center;
-  gap:0.75rem;
-
-  svg{
-    color:${(props) => props.theme.background};
-    
-    padding:0.5rem;
-    width:2rem;
-    height:2rem;
-
-    border-radius:50%;
-
-    ${({ theme, variant }) => variantStyle(theme, variant)}
+  > span {
+    ${mixins.fonts.textL}
+    color: ${({ theme }) => theme.colors['base-subtitle']}
   }
 `
 
-export const MainContainer = styled.main`
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:3.875rem;
+export const Info = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 20px;
 
-  padding:2rem 10rem;
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    svg {
+      padding: 8px;
+      border-radius: 999px;
+    }
+  }
 `
 
-export const ListCoffeeContainer = styled.section`
-  width:100%;
-  display:grid;
-  grid-template-columns:repeat(auto-fill, 16rem);
-  justify-content:space-between;
-  gap:2rem;
+export const CoffeeList = styled.section`
+  max-width: 1160px;
+  padding: 32px 20px 150px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+
+  > h2 {
+    ${mixins.fonts.titleL}
+    color: ${({ theme }) => theme.colors['base-subtitle']}
+  }
+
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 40px;
+    grid-column-gap: 32px;
+  }
 `

@@ -1,133 +1,99 @@
-import styled, { css } from "styled-components";
+import styled from 'styled-components'
 
-const variantStyle = (variant = 'shopping') => ({
-  shopping: css`
-    flex-direction:column;
-    align-items:center;
-    
-    margin:0.375rem;
-    margin-top:1.5625rem;
-    width:16rem;
-    height:19.375rem;
+import { mixins } from '../../styles/mixins'
 
-    border-top-left-radius:6px;
-    border-top-right-radius:36px;
-    border-bottom-left-radius:36px;
-    border-bottom-right-radius:6px;
+export const Container = styled.div`
+  background-color: ${({ theme }) => theme.colors['base-card']};
+  padding: 0 20px 20px;
+  border-radius: 6px 36px;
+  width: 256px;
 
-    img{
-      margin-top:-1.5rem;
-      margin-bottom:0.75rem;
-    }
+  display: flex;
+  flex-direction: column;
 
-    .price > span{
-      font:${(props) => props.theme["text-s"]};
-      margin-top:0.25rem;
-      text-transform:uppercase;
-    }
-
-    .price > span + span{
-      font:${(props) => props.theme["title-m"]};
-      margin-top:0;
-    }
-  `,
-  cart: css`
-    align-items:flex-start;
-    justify-content:space-between;
-    gap:1.25rem;
-    
-    padding:0.5rem 0.25rem;
-
-    img{
-      width:64px;
-      height:64px;
-    }
-
-    span{
-      font:${(props) => props.theme["text-m"]};
-      color:${(props) => props.theme["base-text"]};
-    }
-  `,
-}[variant])
-
-interface CardContainerProps {
-  variant?: string
-}
-
-export const CardContainer = styled.section<CardContainerProps>`
-  display:flex;
-
-  background-color:${(props) => props.theme["base-card"]};
-
-  ${({ variant }) => variantStyle(variant)};
+  text-align: center;
 `
 
-export const CardDescriptionContainer = styled.article`
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap: 0.5rem;
+export const CoffeeImg = styled.img`
+  margin-top: -20px;
+  max-width: 120px;
+  max-height: 120px;
+  align-self: center;
+`
 
-  padding:0 0.5rem;
-  
-  h2{
-    margin-top:1rem;
-    font:${(props) => props.theme["title-s"]};
-  }
+export const Tags = styled.div`
+  margin-top: 12px;
 
-  p{
-    font:${(props) => props.theme["text-s"]};
-    color:${(props) => props.theme["base-label"]};
-    text-align:center;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  gap: 4px;
+
+  span {
+    padding: 4px 8px;
+    border-radius: 100px;
+    background-color: ${({ theme }) => theme.colors['yellow-light']};
+    color: ${({ theme }) => theme.colors['yellow-dark']};
+    text-transform: uppercase;
+    ${mixins.fonts.tag}
   }
 `
 
-export const CardBadgeContainer = styled.article`
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:wrap;
-  padding:0 0.5rem;
-  gap:0.25rem;
+export const Title = styled.h3`
+  margin-top: 16px;
+
+  color: ${({ theme }) => theme.colors['base-subtitle']};
+  ${mixins.fonts.titleS}
 `
 
-export const CardFooterContainer = styled.article`
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+export const Description = styled.span`
+  margin-top: 8px;
+  width: 100%;
 
-  width:100%;
-  padding:0 1.5rem 1.25rem;
+  color: ${({ theme }) => theme.colors['base-label']};
+  ${mixins.fonts.textS}
 `
 
-export const CardPriceContainer = styled.div`
-  display:flex;
-  align-items:center;
-  gap: 0.25rem;
+export const Control = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  color:${(props) => props.theme["base-text"]};
+  margin-top: 32px;
 `
 
-export const CardActionsContainer = styled.div`
-  display:flex;
-  align-items:center;
-  gap:0.5rem;
-`
+export const Price = styled.div`
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
 
-export const InfoContainer = styled.div`
-  display:flex;
-  flex-direction:column;
-  gap:0.5rem;
+  span:first-child {
+    ${mixins.fonts.textS};
+    color: ${({ theme }) => theme.colors['base-text']};
+  }
 
-  h3{
-    font:${(props) => props.theme["text-m"]};
-    color:${(props) => props.theme["base-subtitle"]};
+  span:last-child {
+    ${mixins.fonts.titleM};
+    color: ${({ theme }) => theme.colors['base-text']};
   }
 `
 
-export const InfoProductButtons = styled.div`
-  display:flex;
-  align-items:center;
-  gap:0.5rem;
+export const Order = styled.div<{ $itemAdded?: boolean }>`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  > button {
+    background-color: ${({ theme, $itemAdded }) =>
+    $itemAdded ? theme.colors['yellow-dark'] : theme.colors['purple-dark']};
+    transition: background-color 0.2s;
+    border-radius: 6px;
+    padding: 8px;
+    display: flex;
+
+    &:hover {
+      background-color: ${({ theme, $itemAdded }) =>
+    $itemAdded ? theme.colors.yellow : theme.colors.purple};
+    }
+  }
 `
