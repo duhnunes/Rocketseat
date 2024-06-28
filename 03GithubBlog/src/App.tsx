@@ -5,6 +5,7 @@ import { Router } from "./Router";
 
 import { defaultTheme } from "./styles/themes/default";
 import { GlobalStyle } from "./styles/global";
+import { GithubUserProvider } from "./contexts/GitHubUserContex";
 
 export function App() {
   return (
@@ -15,7 +16,9 @@ export function App() {
         <GlobalStyle />
 
         <BrowserRouter>
-          <Router />
+          <GithubUserProvider>
+            <Router />
+          </GithubUserProvider>
         </BrowserRouter>
       </ThemeProvider>
     </StyleSheetManager>

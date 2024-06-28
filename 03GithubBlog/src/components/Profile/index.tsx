@@ -5,38 +5,13 @@ import { ProfileContainer, ProfileContent, ProfileIcons, ProfileSocialLinks, Pro
 
 import { Building, GithubLogo, Users } from "@phosphor-icons/react"
 import { Link } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { GithubUserContext } from "../../contexts/GitHubUserContex"
+import { useContext } from "react"
 
-interface Profile {
-  id: number
-  login: string
-  avatar_url: string
-  html_url: string
-  name: string
-  company?: string
-  bio: string
-  followers: number
-}
 
 export const Profile = () => {
-  const [profile, setProfile] = useState<Profile | null>(null)
-  
-  async function loadProfile() {
-    const response = await fetch('https://api.github.com/users/duhnunes');
-    const data = await response.json();
-    
-    setProfile(data)
-  }
-  
-  useEffect(() => {
-    loadProfile();
-  }, [])
+  const { profile } = useContext(GithubUserContext)
 
-  if(!profile){
-    return <p>Carregando...</p>
-  }
-
-  
   return(
     <ProfileContainer>
       <img src={profile?.avatar_url} alt="" />
@@ -59,10 +34,12 @@ export const Profile = () => {
             <GithubLogo size={18} weight="fill" />
             <span>{profile?.login}</span>
           </ProfileIcons>
+          {profile?.company && 
           <ProfileIcons>
             <Building size={18} weight="fill" />
-            <span>{profile?.company === null ? 'Ainda sem Compania' : profile?.company}</span>
+            <span>{profile?.company}</span>
           </ProfileIcons>
+          }
           <ProfileIcons>
             <Users size={18} weight="fill" />
             <span>{profile?.followers} seguidores</span>
