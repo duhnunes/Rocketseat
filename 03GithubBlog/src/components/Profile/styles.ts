@@ -12,6 +12,13 @@ export const ProfileContainer = styled.section`
   border-radius:10px;
 
   position:relative;
+
+  img{
+    width:9.25rem;
+    height:9.25rem;
+
+    border-radius:8px;
+  }
 `
 
 export const ProfileContent = styled.article`
@@ -20,7 +27,8 @@ export const ProfileContent = styled.article`
   justify-content:space-between;
   gap:0.5rem;
 
-  height:100%;
+
+  width:100%;
 `
 
 export const ProfileTitle = styled.div`
