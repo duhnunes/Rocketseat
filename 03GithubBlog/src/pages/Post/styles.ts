@@ -63,6 +63,22 @@ export const PostIcons = styled.div`
 export const PostContent = styled.section`
   padding:2.5rem 2rem;
 
+  a{
+    font-size:0.75rem;
+    display:inline;
+  }
+
+  p{
+    margin:0.5rem 0;
+  }
+
+  ul{
+    padding:1rem;
+  }
+  li{
+    padding:0.25rem;
+  }
+  
   span{
     color:${props => props.theme.blue};
   }

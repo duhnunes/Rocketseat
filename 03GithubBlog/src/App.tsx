@@ -6,6 +6,7 @@ import { Router } from "./Router";
 import { defaultTheme } from "./styles/themes/default";
 import { GlobalStyle } from "./styles/global";
 import { GithubUserProvider } from "./contexts/GitHubUserContex";
+import { GithubIssuesProvider } from "./contexts/GithubIssuesContext";
 
 export function App() {
   return (
@@ -17,7 +18,9 @@ export function App() {
 
         <BrowserRouter>
           <GithubUserProvider>
-            <Router />
+            <GithubIssuesProvider>
+              <Router />
+            </GithubIssuesProvider>
           </GithubUserProvider>
         </BrowserRouter>
       </ThemeProvider>

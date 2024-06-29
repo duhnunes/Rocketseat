@@ -1,37 +1,55 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { GithubIssuesContext } from "../../contexts/GithubIssuesContext";
+
+// import { format, formatDistanceToNow } from "date-fns";
+// import { ptBR } from "date-fns/locale";
+
 import { Card, CardContent, CardHeader, CardsGrid, PublicationContainer, PublicationsHeader } from "./styles"
-import Markdown from "react-markdown";
 
 export const Publications = () => {
-  const cards = [1,2,3,4];
+  const { issues } = useContext(GithubIssuesContext)
+
   return(
     <PublicationContainer>
       <PublicationsHeader>
         <h3>Publicações</h3>
-        <span>6 publicações</span>
+        {issues.length === 1 ? (
+          <span>{issues.length}&nbsp; publicação</span>
+        ) : (
+          <span>{issues.length}&nbsp; publicações</span>
+        )}
       </PublicationsHeader>
       <input type="text" placeholder="Buscar conteúdo" />
 
       <CardsGrid>
-        {cards.map(item => {
+        {issues.map(item => {
+          // const createdAt = item.created_at;
+
+          // const publishedDateFormatted = format(createdAt, "d 'de' LLLL 'às' HH:mm'h'", {
+          //   locale: ptBR,
+          // })
+
+          // const publishedDateRelativeToNow = formatDistanceToNow(
+          //   createdAt, {
+          //     locale: ptBR,
+          //     addSuffix: true,
+          //   }
+          // )
+
           return(
-            <Link to="/post" key={item}>
+            <Link to="/post" key={item.id}>
               <Card>
                 <CardHeader>
-                  <h3>JavaScript data types and data structures</h3>
-                  <span>Há 1 dia</span>
+                  <h3>{item.title}</h3>
+                  <time
+                    // title={publishedDateFormatted}
+                  >
+                    {item.created_at}
+                  </time>
                 </CardHeader>
                 <CardContent>
-                  <Markdown>
-                    Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.
-
-                    Dynamic typing
-                    JavaScript is a loosely typed and dynamic language. Variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned (and re-assigned) values of all types:
-
-                    let foo = 42; // foo is now a number
-                    foo = 'bar'; // foo is now a string
-                    foo = true; // foo is now a boolean
-                  </Markdown>
+                  {item.body}
                 </CardContent>
               </Card>
             </Link>

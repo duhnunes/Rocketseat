@@ -48,6 +48,7 @@ export const CardsGrid = styled.section`
     text-transform:none;
     text-decoration:none;
     color:currentColor;
+    border:none;
     
     &:hover article{
       outline:2px solid ${props => props.theme["base-label"]};
@@ -60,6 +61,7 @@ export const Card = styled.article`
   flex-direction:column;
   gap:1.25rem;
 
+  max-height:16.25rem;
   padding:2rem;
 
   background-color:${props => props.theme["base-post"]};
