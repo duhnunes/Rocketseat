@@ -1,13 +1,12 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
-
-import { ProfileContainer, ProfileContent, ProfileIcons, ProfileSocialLinks, ProfileTitle } from "./styles"
-
-import { Building, GithubLogo, Users } from "@phosphor-icons/react"
 import { Link } from "react-router-dom"
 import { GithubUserContext } from "../../contexts/GitHubUserContex"
 import { useContext } from "react"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
+import { Building, GithubLogo, Users } from "@phosphor-icons/react"
+
+import { ProfileContainer, ProfileContent, ProfileIcons, ProfileSocialLinks, ProfileTitle } from "./styles"
 
 export const Profile = () => {
   const { profile } = useContext(GithubUserContext)

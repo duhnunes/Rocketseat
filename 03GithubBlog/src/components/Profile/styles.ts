@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const ProfileContainer = styled.section`
   display:flex;
-  align-items:center;
   gap:2rem;
 
   padding:2rem 2.5rem;
@@ -22,13 +21,11 @@ export const ProfileContainer = styled.section`
 `
 
 export const ProfileContent = styled.article`
+  flex:1;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   gap:0.5rem;
-
-
-  width:100%;
 `
 
 export const ProfileTitle = styled.div`
