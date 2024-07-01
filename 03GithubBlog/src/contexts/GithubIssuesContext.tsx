@@ -17,9 +17,7 @@ export interface Issues{
 
 interface GithubIssuesContextType{
   issues: Issues[]
-  setIssues: (query?: string) => void
   getIssues: (query: string) => Promise<void>
-  getIssuesToPage: () => Promise<void>
 
   // fetchIssues: (query?: string) => Promise<void>
 }
@@ -81,7 +79,6 @@ export function GithubIssuesProvider({ children }: GithubIssuesProviderProps) {
       value={{
         issues,
         getIssues,
-        setIssues,
         
         // fetchIssues,
       }}
