@@ -52,10 +52,8 @@ export function Post() {
 
             <PostIcons>
               <ChatCircle size={18} weight="fill" />
-              {issues.length !== 1 ? (
-                <span>{issues.map(item => item.comments)}&nbsp; comentário</span>
-              ) : (
-                <span>{issues.map(item => item.comments)}&nbsp; comentários</span>
+              {issues.length && (
+                <span>{issues[0]?.comments}&nbsp; comentários</span>
               )}
             </PostIcons>
           </PostStatistics>

@@ -1,4 +1,5 @@
-import { ReactNode, createContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useCallback, useEffect, useState } from "react";
+import { api } from "../lib/axios";
 
 interface ProfileUser {
   id: number
@@ -19,21 +20,34 @@ interface GithubUserProviderProps {
   children: ReactNode
 }
 
+const username = import.meta.env.VITE_GITHUB_USERNAME;
+
 export const GithubUserContext = createContext({} as GithubUserContextType)
 
 export function GithubUserProvider({ children }: GithubUserProviderProps) {
-  const [profile, setProfile] = useState<ProfileUser | null>(null)
+  const [profile, setProfile] = useState<ProfileUser>({} as ProfileUser)
   
-  async function loadProfile() {
-    const response = await fetch('https://api.github.com/users/duhnunes');
-    const data = await response.json();
+  const getUser = useCallback(async () => {
+    try{
+      const res = await api.get(`/users/${username}`);
     
-    setProfile(data)
-  }
+      setProfile(res.data)
+    } catch(error){
+      console.log('Error de retorno de GithubUserAPI ' + error);
+    }
+  }, [])
+  
+  // async function loadProfile() {
+  //   const response = await fetch('https://api.github.com/users/duhnunes');
+  //   const data = await response.json();
+    
+  //   setProfile(data)
+  // }
   
   useEffect(() => {
-    loadProfile();
-  }, [])
+    getUser();
+    // loadProfile();
+  }, [getUser])
 
   if(!profile){
     return <p>Carregando informações...</p>

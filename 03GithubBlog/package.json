@@ -14,15 +14,20 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@hookform/resolvers": "^3.6.0",
     "@phosphor-icons/react": "^2.1.6",
     "axios": "^1.7.2",
     "date-fns": "^3.6.0",
+    "dotenv": "^16.4.5",
+    "moment": "^2.30.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.52.0",
     "react-markdown": "^9.0.1",
     "react-router-dom": "^6.24.0",
     "remark-gfm": "^4.0.0",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

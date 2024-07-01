@@ -1,14 +1,29 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { GithubIssuesContext } from "../../contexts/GithubIssuesContext";
 
-// import { format, formatDistanceToNow } from "date-fns";
-// import { ptBR } from "date-fns/locale";
+import { Card, CardContent, CardHeader, CardsGrid, PublicationContainer, PublicationForm, PublicationsHeader } from "./styles"
+import { useForm } from "react-hook-form";
+import * as z from 'zod'
+import { zodResolver } from "@hookform/resolvers/zod";
+import { relativeDateFormatter } from "../../utils/formatter";
 
-import { Card, CardContent, CardHeader, CardsGrid, PublicationContainer, PublicationsHeader } from "./styles"
+const searchFormSchema = z.object({
+  query: z.string(),
+})
+
+type SearchFormInputs = z.infer<typeof searchFormSchema>
 
 export const Publications = () => {
-  const { issues } = useContext(GithubIssuesContext)
+  const { issues, getIssues } = useContext(GithubIssuesContext)
+  const { register, handleSubmit } = useForm<SearchFormInputs>({
+    resolver: zodResolver(searchFormSchema),
+  })
+
+  const handleSearchPosts = async (data: SearchFormInputs) => {
+    await getIssues(data.query)
+  }
 
   return(
     <PublicationContainer>
@@ -20,32 +35,28 @@ export const Publications = () => {
           <span>{issues.length}&nbsp; publicações</span>
         )}
       </PublicationsHeader>
-      <input type="text" placeholder="Buscar conteúdo" />
+      
+      <PublicationForm onSubmit={handleSubmit(handleSearchPosts)}>
+        <input
+          type="text"
+          placeholder="Buscar conteúdo"
+          {...register('query')}
+        />
+      </PublicationForm>
 
       <CardsGrid>
         {issues.map(item => {
-          // const createdAt = item.created_at;
-
-          // const publishedDateFormatted = format(createdAt, "d 'de' LLLL 'às' HH:mm'h'", {
-          //   locale: ptBR,
-          // })
-
-          // const publishedDateRelativeToNow = formatDistanceToNow(
-          //   createdAt, {
-          //     locale: ptBR,
-          //     addSuffix: true,
-          //   }
-          // )
+          const formattedDate = relativeDateFormatter(item.created_at)
 
           return(
-            <Link to="/post" key={item.id}>
+            <Link to={`/post/${item.id}`} key={item.id}>
               <Card>
                 <CardHeader>
                   <h3>{item.title}</h3>
                   <time
-                    // title={publishedDateFormatted}
+                    title={formattedDate}
                   >
-                    {item.created_at}
+                    {formattedDate}
                   </time>
                 </CardHeader>
                 <CardContent>

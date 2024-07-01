@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const PublicationContainer = styled.section`
   margin:4.5rem 0;
+`
+
+export const PublicationForm = styled.form`
 
   input{
     width:100%;
@@ -82,9 +85,10 @@ export const CardHeader = styled.div`
     flex:1;
   }
 
-  span{
+  time{
     color:${props => props.theme["base-span"]};
     font-size:0.875rem;
+    width:max-content;
   }
 `
 
