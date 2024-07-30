@@ -99,7 +99,7 @@ export function App() {
         </article>
 
         {listTodo?.length === 0 ? (
-          <article className="flex flex-col items-center gap-4 px-6 py-16">
+          <article className="flex flex-col items-center gap-4 px-6 py-16 border-t-2 border-gray-400 rounded-md">
             <img src={clipboard} className="size-14" alt="" />
 
             <div className="flex w-full flex-col items-center">

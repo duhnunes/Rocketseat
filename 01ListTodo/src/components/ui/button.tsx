@@ -25,13 +25,13 @@ const button = tv({
   },
 })
 
-export interface ButtonPropsTEST
+export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof button> {
   children: ReactNode
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonPropsTEST>(
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, variant, size, ...props }, ref) => {
     return (
       <button className={button({ variant, size })} {...props} ref={ref}>
