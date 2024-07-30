@@ -1,14 +1,32 @@
-# About
-Projeto DESAFIO do Curso Ignite da RocketSeat
+# Project 01 | List Todo
 
-# Links
-> Projeto recriado após a conclusão, para melhor aprendizado e com um esforço maior em pesquisas para resolver os problemas e ter o resultado desejado.
+List Todo é o primeiro projeto do Curso de ReactJS da @RocketSeat, e eu resolvi refazê-lo como um desafio para praticar utilizando as tecnologias e libs que eu mais gosto de usar.
 
-Link do Desafio: [ListTodo Vercel](https://todolist-ignite-duhnunes.vercel.app/)
+O processo foi de muita pesquisa, olhar outros projetos já prontos e por fim, caso nada resolvesse, pedir ajuda ao copilot para resolver os erros que eu não estava conseguindo resolver na hora da funcionalidade.
 
-# Observações
- > * Eu não consegui concluir anteriormente no tempo estimado, então resolvi recriá-lo para continuar os estudos.
+## Modificações
+> Eu modifiquei um pouco o layout(detalhes) e adicionei algumas coisas diferentes exatamente para treinar.
 
-Como eu recriei o projeto do zero e eu já estava mais avançado no curso Ignite(LVL 2), eu resolvi utilizar styled-components apenas para a melhor criação de components e adicionei variants em alguns deles.
+- Alert Dialog para confirmação da exclusão.
+- Shadow no input, botão, área da contagem das Tasks e Body da Task
+- Contexts Provider
 
-Eu resolvi recriar o projeto do zero para assim adiquirir mais conhecimento, pesquisando e lendo mais a fundo sobre as funções e como criá-las. Além de reorganizar o repositório dentro do meu github.
+
+## Tecnologias/Libs utilizadas nesse projeto
+
+- Vite/React
+- Typescript
+- TailWindCss
+- @rocketseat/eslint-config
+- eslint-plugin-simple-import-sort
+- prettier-plugin-tailwindcss
+- tailwind-variants
+- PhosphorIcons
+- react-hook-form
+- zod
+- Shadcn-ui `AlertDialog`
+
+
+## Changelog
+- 13/Jun/2024 | Finish Project Date
+- 27/Jul/2024 | Remake Initial Release Date
