@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const button = tv({
-  base: 'border-none bg-none inline-flex gap-2 items-center rounded-lg text-sm transition-all duration-150 cursor-pointer focus:outline-none focus:border-purple-dark focus:ring-purple-dark focus:ring-2 shadow-input select-none',
+  base: 'border-none bg-none inline-flex gap-2 items-center rounded-lg text-sm transition-all duration-150 cursor-pointer focus:outline-none focus:border-purple-dark focus:ring-purple-dark focus:ring-2 shadow-input select-none font-medium',
   variants: {
     variant: {
       primary: 'bg-blue-dark text-gray-100 hover:bg-blue-light',

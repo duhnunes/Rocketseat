@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { PlusCircle } from '@phosphor-icons/react'
+import { PlusCircle } from 'lucide-react'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'

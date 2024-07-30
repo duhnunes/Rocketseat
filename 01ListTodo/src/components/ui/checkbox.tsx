@@ -1,4 +1,4 @@
-import { CheckFat } from '@phosphor-icons/react'
+import { Check } from 'lucide-react'
 import React from 'react'
 import { tv } from 'tailwind-variants'
 
@@ -26,7 +26,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           onChange={onChange}
         />
         <span className="pointer-events-none absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 text-gray-100 opacity-0 transition-opacity peer-checked:opacity-100">
-          <CheckFat weight="fill" className="size-3" />
+          <Check strokeWidth={3} className="size-3" />
         </span>
       </div>
     )
