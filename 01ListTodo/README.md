@@ -20,7 +20,6 @@ O processo foi de muita pesquisa, olhar outros projetos já prontos e rever aula
 - @rocketseat/eslint-config
 - eslint-plugin-simple-import-sort
 - prettier-plugin-tailwindcss
-- tailwind-variants
 - Lucide Icons
 - react-hook-form
 - zod
