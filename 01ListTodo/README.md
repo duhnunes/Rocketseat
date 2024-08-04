@@ -24,7 +24,7 @@ O processo foi de muita pesquisa, olhar outros projetos já prontos e rever aula
 - Lucide Icons
 - react-hook-form
 - zod
-- Shadcn-ui `AlertDialog`
+- Shadcn-ui
 
 ## Changelog
 - 13/Jun/2024 | Finish Original Project Date

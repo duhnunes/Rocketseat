@@ -1,46 +1,54 @@
-import React, { ReactNode } from 'react'
-import { tv, type VariantProps } from 'tailwind-variants'
+import { Slot } from '@radix-ui/react-slot'
+import { cva, type VariantProps } from 'class-variance-authority'
+import * as React from 'react'
 
-const button = tv({
-  base: 'border-none bg-none inline-flex gap-2 items-center rounded-lg text-sm transition-all duration-150 cursor-pointer focus:outline-none focus:border-purple-dark focus:ring-purple-dark focus:ring-2 shadow-input select-none font-medium',
-  variants: {
-    variant: {
-      primary: 'bg-blue-dark text-gray-100 hover:bg-blue-light',
-      outline:
-        'hover:outline hover:outline-1 hover:outline-gray-400 outline-none  shadow-none',
-      ghost: 'text-gray-300 hover:text-danger hover:bg-gray-400 shadow-none',
-      success:
-        'bg-green-600 text-gray-100 hover:bg-green-500 hover:text-gray-600',
-      danger: 'bg-red-600 hover:bg-red-500',
+import { cn } from '@/lib/utils'
+
+const buttonVariants = cva(
+  'inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium border-none bg-none gap-2 transition-all duration-150 cursor-pointer  ring-offset-background focus:outline-none focus:border-purple-dark focus:ring-purple-dark focus:ring-2 shadow-input select-none disabled:pointer-events-none disabled:opacity-50',
+  {
+    variants: {
+      variant: {
+        default: 'bg-blue-dark text-gray-100 hover:bg-blue-light',
+        destructive: 'bg-red-600 hover:bg-red-500',
+        success:
+          'bg-green-600 text-gray-100 hover:bg-green-500 hover:text-gray-600',
+        outline:
+          'hover:outline hover:outline-1 hover:outline-gray-400 outline-none  shadow-none',
+
+        ghost: 'text-gray-300 hover:text-danger hover:bg-gray-400 shadow-none',
+      },
+      size: {
+        default: 'p-4',
+        sm: 'p-1',
+        lg: 'p-2',
+      },
     },
-    size: {
-      primary: 'p-4',
-      ghost: 'p-1',
-      confirm: 'p-2',
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
     },
-  },
-  defaultVariants: {
-    variant: 'primary',
-    size: 'primary',
-  },
-})
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof button> {
-  children: ReactNode
-}
-
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, variant, size, ...props }, ref) => {
-    return (
-      <button className={button({ variant, size })} {...props} ref={ref}>
-        {children}
-      </button>
-    )
   },
 )
 
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : 'button'
+    return (
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    )
+  },
+)
 Button.displayName = 'Button'
 
-export { Button }
+export { Button, buttonVariants }
