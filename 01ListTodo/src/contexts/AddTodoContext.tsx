@@ -9,7 +9,7 @@ import {
 export interface CreateAddTodoData {
   id: number
   task: string
-  isChecked: boolean
+  isChecked?: boolean
 }
 
 interface AddTodoContextType {
@@ -18,7 +18,8 @@ interface AddTodoContextType {
   listTodo: CreateAddTodoData[]
   handleAddTask: () => void
   handleDeleteTask: (id: number) => void
-  handleTaskToggle: ({ id, value }: { id: number; value: boolean }) => void
+  handleTaskToggle: (id: number, checked: boolean | string) => void
+  handleEditTask: () => void
 }
 
 interface AddTodoProviderProps {
@@ -52,16 +53,21 @@ export function AddTodoProvider({ children }: AddTodoProviderProps) {
     setListTodo(filteredTasks)
   }
 
-  function handleTaskToggle({ id, value }: { id: number; value: boolean }) {
+  function handleTaskToggle(id: number, checked: boolean | string) {
+    const value = checked === true || checked === 'true'
+
     const updateTasks = listTodo.map((task) => {
       if (task.id === id) {
         return { ...task, isChecked: value }
       }
-
-      return { ...task }
+      return task
     })
 
     setListTodo(updateTasks)
+  }
+
+  function handleEditTask() {
+    console.log('Editing')
   }
 
   return (
@@ -73,6 +79,7 @@ export function AddTodoProvider({ children }: AddTodoProviderProps) {
         handleAddTask,
         handleDeleteTask,
         handleTaskToggle,
+        handleEditTask,
       }}
     >
       {children}

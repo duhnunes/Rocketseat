@@ -1,38 +1,30 @@
+'use client'
+
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import { Check } from 'lucide-react'
-import React from 'react'
-import { tv } from 'tailwind-variants'
+import * as React from 'react'
 
-const checkbox = tv({
-  base: 'peer relative size-4 cursor-pointer appearance-none rounded-full border border-blue-light transition-all checked:border-purple-dark checked:bg-purple-dark hover:border-blue-dark checked:hover:border-purple-light checked:hover:bg-purple-light focus:outline-none focus:border-purple-dark focus:ring-purple-dark focus:ring-1 leading-[0]',
-})
+import { cn } from '@/lib/utils'
 
-export interface CheckboxProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  onChecked: boolean
-}
-
-const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ id, onChecked, onChange, ...props }, ref) => {
-    return (
-      <div className="relative inline-flex items-center">
-        <span className="sr-only">Checkbox</span>
-        <input
-          type="checkbox"
-          className={checkbox()}
-          {...props}
-          ref={ref}
-          data-id={id}
-          checked={onChecked}
-          onChange={onChange}
-        />
-        <span className="pointer-events-none absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 text-gray-100 opacity-0 transition-opacity peer-checked:opacity-100">
-          <Check strokeWidth={3} className="size-3" />
-        </span>
-      </div>
-    )
-  },
-)
-
-Checkbox.displayName = 'Checkbox'
+const Checkbox = React.forwardRef<
+  React.ElementRef<typeof CheckboxPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
+>(({ className, ...props }, ref) => (
+  <CheckboxPrimitive.Root
+    ref={ref}
+    className={cn(
+      'peer relative size-4 shrink-0 rounded-full border border-blue-light transition-all hover:border-blue-dark ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-purple-dark data-[state=checked]:border-purple-dark data-[state=checked]:hover:border-purple-light data-[state=checked]:hover:bg-purple-light data-[state=checked]:text-gray-100',
+      className,
+    )}
+    {...props}
+  >
+    <CheckboxPrimitive.Indicator
+      className={cn('flex items-center justify-center text-current')}
+    >
+      <Check className="h-4 w-4" />
+    </CheckboxPrimitive.Indicator>
+  </CheckboxPrimitive.Root>
+))
+Checkbox.displayName = CheckboxPrimitive.Root.displayName
 
 export { Checkbox }
