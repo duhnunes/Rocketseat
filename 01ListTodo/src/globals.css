@@ -4,7 +4,11 @@
 
 @layer base {
   
-  .scrollbar{
-    scrollbar-width: thin;
+  ::-webkit-scrollbar{
+    width:6px;
+  }
+  ::-webkit-scrollbar-thumb{
+    border-radius: 99999px;
+    background:#808080;
   }
 }

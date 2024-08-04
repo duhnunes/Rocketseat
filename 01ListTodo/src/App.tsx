@@ -1,11 +1,13 @@
+/* eslint-disable import/no-absolute-path */
 import { zodResolver } from '@hookform/resolvers/zod'
 import { PlusCircle } from 'lucide-react'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
-import clipboard from '../public/assets/clipboard.svg'
-import logo from '../public/assets/logo.svg'
+import clipboard from '/assets/clipboard.svg'
+import logo from '/assets/logo.svg'
+
 import { TaskComponent } from './components/task'
 import { Button } from './components/ui/button'
 import { Input } from './components/ui/input'
@@ -21,13 +23,8 @@ const listTodoValidationSchema = z.object({
 type ListTodoFormData = z.infer<typeof listTodoValidationSchema>
 
 export function App() {
-  const {
-    inputValue,
-    setInputValue,
-    listTodo,
-    handleAddTask,
-    handleDeleteTask,
-  } = useContext(AddTodoContext)
+  const { inputValue, setInputValue, listTodo, handleAddTask } =
+    useContext(AddTodoContext)
 
   const newAddTodo = useForm<ListTodoFormData>({
     resolver: zodResolver(listTodoValidationSchema),
@@ -49,7 +46,7 @@ export function App() {
   }, 0)
 
   return (
-    <div className="scrollbar min-h-screen w-full bg-gray-600 pb-10 text-gray-300 antialiased">
+    <div className="min-h-screen w-full bg-gray-600 pb-10 text-gray-300 antialiased">
       <header className="flex h-[200px] w-full select-none items-center justify-center gap-3 bg-gray-700">
         <img className="h-9 w-[22px]" src={logo} alt="" />
         <div>
@@ -60,28 +57,34 @@ export function App() {
 
       <form
         onSubmit={handleSubmit(handleAddTask)}
-        className="mx-auto flex max-w-[736px] -translate-y-[50%] items-center justify-center gap-2"
+        className="mx-auto flex max-w-[736px] -translate-y-[50%] items-center justify-center gap-2 px-4 md:p-0"
       >
-        <Input
-          placeholder="Adicione uma nova tarefa"
-          value={inputValue}
-          {...register('task', {
-            onChange: (e) => setInputValue(e.target.value),
-          })}
-        />
+        <div className="flex-1">
+          <Input
+            placeholder="Adicione uma nova tarefa"
+            value={inputValue}
+            {...register('task', {
+              onChange: (e) => setInputValue(e.target.value),
+            })}
+          />
+        </div>
         <Button type="submit">
           Criar
           <PlusCircle size={16} />
         </Button>
       </form>
 
-      <section className="mx-auto flex max-w-[736px] flex-col gap-6">
+      <section className="mx-auto flex max-w-[736px] flex-col gap-6 px-4">
         <article className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="cursor-default text-sm font-bold text-blue-light">
               Tarefas Criadas
             </span>
-            <span className="shadow-shape select-none rounded-full bg-gray-400 px-2 py-1 text-xs font-bold text-gray-200">
+            <span
+              className="shadow-shape select-none rounded-full bg-gray-400 px-2 py-1 text-xs font-bold text-gray-200 outline-none focus:outline-2 focus:outline-purple-light"
+              tabIndex={0}
+              aria-label={`Tarefas Criadas ${listTodo.length}`}
+            >
               {listTodo ? listTodo.length : 0}
             </span>
           </div>
@@ -90,7 +93,11 @@ export function App() {
             <span className="cursor-default text-sm font-bold text-purple-light">
               Concluídas
             </span>
-            <span className="shadow-shape select-none rounded-full bg-gray-400 px-2 py-1 text-xs font-bold text-gray-200">
+            <span
+              className="shadow-shape select-none rounded-full bg-gray-400 px-2 py-1 text-xs font-bold text-gray-200  outline-none focus:outline-2 focus:outline-purple-light"
+              tabIndex={0}
+              aria-label={`Tarefas Concluídas ${checkedTasksCounter} de ${listTodo.length}`}
+            >
               {checkedTasksCounter}
               &nbsp;de&nbsp;
               {listTodo?.length}
@@ -99,10 +106,14 @@ export function App() {
         </article>
 
         {listTodo?.length === 0 ? (
-          <article className="flex flex-col items-center gap-4 px-6 py-16 border-t-2 border-gray-400 rounded-md">
+          <article
+            className="flex flex-col items-center gap-4 px-6 py-16 border-t-2 border-gray-400 rounded-md"
+            tabIndex={0}
+            aria-label="Você ainda não tem tarefas cadastradas. Crie tarefas e organize seus itens a fazer."
+          >
             <img src={clipboard} className="size-14" alt="" />
 
-            <div className="flex w-full flex-col items-center">
+            <div className="flex w-full flex-col items-center text-center">
               <p className="font-bold text-gray-300">
                 Você ainda não tem tarefas cadastradas
               </p>
@@ -114,13 +125,7 @@ export function App() {
         ) : (
           <>
             {listTodo?.map((item) => {
-              return (
-                <TaskComponent
-                  key={item.id}
-                  {...item}
-                  onDelete={handleDeleteTask}
-                />
-              )
+              return <TaskComponent key={item.id} {...item} />
             })}
           </>
         )}

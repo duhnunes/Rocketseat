@@ -3,7 +3,7 @@ import './globals.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import { App } from './app'
+import { App } from './App'
 import { AddTodoProvider } from './contexts/AddTodoContext'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
