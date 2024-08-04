@@ -1,10 +1,10 @@
 import { Check } from 'lucide-react'
 import React from 'react'
-import { tv } from 'tailwind-variants'
+// import { tv } from 'tailwind-variants'
 
-const checkboxCopy = tv({
-  base: 'peer relative size-4 cursor-pointer appearance-none rounded-full border border-blue-light transition-all checked:border-purple-dark checked:bg-purple-dark hover:border-blue-dark checked:hover:border-purple-light checked:hover:bg-purple-light focus:outline-none focus:border-purple-dark focus:ring-purple-dark focus:ring-1 leading-[0]',
-})
+// const checkboxCopy = tv({
+//   base: 'peer relative size-4 cursor-pointer appearance-none rounded-full border border-blue-light transition-all checked:border-purple-dark checked:bg-purple-dark hover:border-blue-dark checked:hover:border-purple-light checked:hover:bg-purple-light focus:outline-none focus:border-purple-dark focus:ring-purple-dark focus:ring-1 leading-[0]',
+// })
 
 export interface CheckboxProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -20,7 +20,7 @@ const CheckboxCopy = React.forwardRef<HTMLInputElement, CheckboxProps>(
         <span className="sr-only">Checkbox</span>
         <input
           type="checkbox"
-          className={checkboxCopy()}
+          // className={checkboxCopy()}
           {...props}
           ref={ref}
           data-id={id}

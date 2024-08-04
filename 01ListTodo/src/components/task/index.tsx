@@ -5,7 +5,6 @@ import {
   CreateAddTodoData,
 } from '../../contexts/AddTodoContext'
 import { DeleteTask } from '../deleteTask'
-import { EditTask } from '../editTask'
 import { Checkbox } from '../ui/checkbox'
 
 interface TaskComponentProps extends CreateAddTodoData {}
@@ -35,7 +34,6 @@ export const TaskComponent = ({ id, task, isChecked }: TaskComponentProps) => {
         {task}
       </p>
       <div className="flex items-center gap-2">
-        <EditTask task={task} id={id} />
         <DeleteTask task={task} id={id} />
       </div>
     </article>
