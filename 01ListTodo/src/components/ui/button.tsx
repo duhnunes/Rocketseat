@@ -14,9 +14,11 @@ const buttonVariants = cva(
         success:
           'bg-green-600 text-gray-100 hover:bg-green-500 hover:text-gray-600',
         outline:
-          'hover:outline hover:outline-1 hover:outline-gray-400 outline-none  shadow-none',
+          'hover:outline hover:outline-1 hover:outline-gray-400 hover:text-gray-100 outline-none  shadow-none',
 
         ghost: 'text-gray-300 hover:text-danger hover:bg-gray-400 shadow-none',
+        input:
+          'flex w-full rounded-lg bg-gray-500 shadow-input text-md transition-all duration-150 outline-none focus:border-purple-dark focus:ring-2 placeholder:select-none focus:ring-purple-dark',
       },
       size: {
         default: 'p-4',

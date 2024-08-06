@@ -1,41 +1,15 @@
 /* eslint-disable import/no-absolute-path */
-import { zodResolver } from '@hookform/resolvers/zod'
-import { PlusCircle } from 'lucide-react'
 import { useContext } from 'react'
-import { useForm } from 'react-hook-form'
-import * as z from 'zod'
 
 import clipboard from '/assets/clipboard.svg'
 import logo from '/assets/logo.svg'
 
+import { CreateTask } from './components/createTask'
 import { TaskComponent } from './components/task'
-import { Button } from './components/ui/button'
-import { Input } from './components/ui/input'
 import { AddTodoContext } from './contexts/AddTodoContext'
 
-const listTodoValidationSchema = z.object({
-  id: z.number(),
-  task: z.string().min(3, {
-    message: 'Informe um mínimo de 3 caracteres',
-  }),
-  isChecked: z.boolean(),
-})
-type ListTodoFormData = z.infer<typeof listTodoValidationSchema>
-
 export function App() {
-  const { inputValue, setInputValue, listTodo, handleAddTask } =
-    useContext(AddTodoContext)
-
-  const newAddTodo = useForm<ListTodoFormData>({
-    resolver: zodResolver(listTodoValidationSchema),
-    defaultValues: {
-      task: '',
-      id: new Date().getTime(),
-      isChecked: false,
-    },
-  })
-
-  const { register, handleSubmit } = newAddTodo
+  const { listTodo } = useContext(AddTodoContext)
 
   const checkedTasksCounter = listTodo.reduce((prevValue, currentTask) => {
     if (currentTask.isChecked) {
@@ -55,24 +29,7 @@ export function App() {
         </div>
       </header>
 
-      <form
-        onSubmit={handleSubmit(handleAddTask)}
-        className="mx-auto flex max-w-[736px] -translate-y-[50%] items-center justify-center gap-2 px-4 md:p-0"
-      >
-        <div className="flex-1">
-          <Input
-            placeholder="Adicione uma nova tarefa"
-            value={inputValue}
-            {...register('task', {
-              onChange: (e) => setInputValue(e.target.value),
-            })}
-          />
-        </div>
-        <Button type="submit">
-          Criar
-          <PlusCircle size={16} />
-        </Button>
-      </form>
+      <CreateTask />
 
       <section className="mx-auto flex max-w-[736px] flex-col gap-6 px-4">
         <article className="flex items-center justify-between">

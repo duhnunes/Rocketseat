@@ -5,7 +5,6 @@ import {
   SetStateAction,
   useState,
 } from 'react'
-import { v4 as uuidv4 } from 'uuid'
 
 export interface CreateAddTodoData {
   id: string
@@ -19,7 +18,6 @@ interface AddTodoContextType {
   setInputValue: Dispatch<SetStateAction<string>>
   listTodo: CreateAddTodoData[]
   setListTodo: Dispatch<SetStateAction<CreateAddTodoData[]>>
-  handleAddTask: () => void
   handleDeleteTask: (id: string) => void
   handleTaskToggle: (id: string, checked: boolean | string) => void
   handleEditTask: (id: string) => void
@@ -34,22 +32,6 @@ export const AddTodoContext = createContext({} as AddTodoContextType)
 export function AddTodoProvider({ children }: AddTodoProviderProps) {
   const [listTodo, setListTodo] = useState<CreateAddTodoData[]>([])
   const [inputValue, setInputValue] = useState('')
-
-  function handleAddTask() {
-    if (!inputValue) {
-      return
-    }
-
-    const newTask: CreateAddTodoData = {
-      id: uuidv4(),
-      task: inputValue,
-      isChecked: false,
-      isEditing: false,
-    }
-
-    setListTodo((state) => [newTask, ...state])
-    setInputValue('')
-  }
 
   function handleDeleteTask(id: string) {
     const filteredTasks = listTodo.filter((item) => item.id !== id)
@@ -84,7 +66,6 @@ export function AddTodoProvider({ children }: AddTodoProviderProps) {
         inputValue,
         setInputValue,
         listTodo,
-        handleAddTask,
         handleDeleteTask,
         handleTaskToggle,
         handleEditTask,

@@ -52,10 +52,13 @@ export function EditTask({ task, id }: EditTaskProps) {
           </DialogDescription>
         </DialogHeader>
         <div className="">
-          <Textarea
-            value={editedTask}
-            onChange={(e) => setEditedTask(e.target.value)}
-          />
+          <div className="flex flex-col min-h-60 w-full rounded-lg shadow-code bg-gray-500  text-gray-100 text-sm transition-all duration-150 ring-offset-background placeholder:text-gray-300 outline-none focus:border-purple-dark focus:ring-2 placeholder:select-none focus:ring-purple-dark group">
+            <Textarea
+              value={editedTask}
+              onChange={(e) => setEditedTask(e.target.value)}
+              className="group-focus-within:outline-none group-focus-within:border-purple-dark group-focus-within:ring-2 group-focus-within:ring-purple-dark"
+            />
+          </div>
         </div>
         <DialogFooter>
           <Button variant="success" type="submit" onClick={handleSave}>
