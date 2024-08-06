@@ -24,4 +24,4 @@ O processo foi de muita pesquisa, olhar outros projetos já prontos, rever aulas
 - react-hook-form
 - zod
 - Shadcn-ui
-
+- uuid
