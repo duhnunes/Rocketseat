@@ -25,3 +25,9 @@ O processo foi de muita pesquisa, olhar outros projetos já prontos, rever aulas
 - zod
 - Shadcn-ui
 - uuid
+- react-markdown
+- prismjs
+- rehype-prism-plus
+- rehype-raw
+- remark-breaks
+- remark-gfm

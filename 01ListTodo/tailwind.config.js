@@ -9,6 +9,7 @@ module.exports = {
     './src/**/*.{ts,tsx}',
   ],
   prefix: '',
+  important: true,
   theme: {
     container: {
       center: true,
@@ -62,5 +63,31 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    function addPreBlockCodeStyles({ addComponents }) {
+      addComponents({
+        'code[class*="language-"]': {
+          '@apply !whitespace-break-spaces': {},
+        },
+        '.pre-block code': {
+          '@apply bg-transparent text-inherit px-0 block w-[150x] text-balance':
+            {},
+        },
+      })
+    },
+    function checkedBoxChecked({ addComponents }) {
+      addComponents({
+        '.checkboxCheckedCss': {
+          '@apply text-gray-300 line-through': {},
+        },
+        '.checkboxCheckedCss a': {
+          '@apply text-gray-300 line-through': {},
+        },
+        '.checkboxCheckedCss a:hover': {
+          '@apply text-gray-300 line-through': {},
+        },
+      })
+    },
+  ],
 }

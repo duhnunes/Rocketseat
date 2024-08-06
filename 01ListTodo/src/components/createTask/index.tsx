@@ -88,7 +88,7 @@ export function CreateTask() {
       <DialogContent>
         <form
           onSubmit={handleSubmit(handleAddTask)}
-          className="mx-auto flex flex-col gap-2 w-full"
+          className="mx-auto flex flex-col gap-4 w-full"
         >
           <DialogHeader>
             <DialogTitle className="text-gray-100">Criar Tarefa</DialogTitle>
@@ -96,7 +96,7 @@ export function CreateTask() {
               Adicione uma nova tarefa à sua lista
             </DialogDescription>
           </DialogHeader>
-          <div className="flex flex-col min-h-60 w-full rounded-lg shadow-code bg-gray-500  text-gray-100 text-sm transition-all duration-150 ring-offset-background placeholder:text-gray-300 outline-none focus:border-purple-dark focus:ring-2 placeholder:select-none focus:ring-purple-dark group">
+          <div className="flex flex-col flex-1 w-full rounded-lg shadow-code bg-gray-500 text-gray-100 text-sm transition-all duration-150 ring-offset-background placeholder:text-gray-300 outline-none focus:border-purple-dark focus:ring-2 placeholder:select-none focus:ring-purple-dark group">
             <Textarea
               placeholder="Adicione uma nova tarefa"
               value={inputValue}
