@@ -5,21 +5,24 @@ import {
   SetStateAction,
   useState,
 } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 export interface CreateAddTodoData {
-  id: number
+  id: string
   task: string
   isChecked?: boolean
+  isEditing?: boolean
 }
 
 interface AddTodoContextType {
   inputValue: string
   setInputValue: Dispatch<SetStateAction<string>>
   listTodo: CreateAddTodoData[]
+  setListTodo: Dispatch<SetStateAction<CreateAddTodoData[]>>
   handleAddTask: () => void
-  handleDeleteTask: (id: number) => void
-  handleTaskToggle: (id: number, checked: boolean | string) => void
-  handleEditTask: () => void
+  handleDeleteTask: (id: string) => void
+  handleTaskToggle: (id: string, checked: boolean | string) => void
+  handleEditTask: (id: string) => void
 }
 
 interface AddTodoProviderProps {
@@ -38,36 +41,41 @@ export function AddTodoProvider({ children }: AddTodoProviderProps) {
     }
 
     const newTask: CreateAddTodoData = {
-      id: new Date().getTime(),
+      id: uuidv4(),
       task: inputValue,
       isChecked: false,
+      isEditing: false,
     }
 
     setListTodo((state) => [newTask, ...state])
     setInputValue('')
   }
 
-  function handleDeleteTask(id: number) {
+  function handleDeleteTask(id: string) {
     const filteredTasks = listTodo.filter((item) => item.id !== id)
 
     setListTodo(filteredTasks)
   }
 
-  function handleTaskToggle(id: number, checked: boolean | string) {
+  function handleTaskToggle(id: string, checked: boolean | string) {
     const value = checked === true || checked === 'true'
 
-    const updateTasks = listTodo.map((task) => {
+    const updateCheckboxTask = listTodo.map((task) => {
       if (task.id === id) {
         return { ...task, isChecked: value }
       }
       return task
     })
 
-    setListTodo(updateTasks)
+    setListTodo(updateCheckboxTask)
   }
 
-  function handleEditTask() {
-    console.log('Editing')
+  function handleEditTask(id: string) {
+    const editTask = listTodo.map((item) =>
+      item.id === id ? { ...item, isEditing: !item.isEditing } : item,
+    )
+
+    setListTodo(editTask)
   }
 
   return (
@@ -80,6 +88,7 @@ export function AddTodoProvider({ children }: AddTodoProviderProps) {
         handleDeleteTask,
         handleTaskToggle,
         handleEditTask,
+        setListTodo,
       }}
     >
       {children}

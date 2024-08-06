@@ -81,7 +81,7 @@ export function App() {
               Tarefas Criadas
             </span>
             <span
-              className="shadow-shape select-none rounded-full bg-gray-400 px-2 py-1 text-xs font-bold text-gray-200 outline-none focus:outline-2 focus:outline-purple-light"
+              className="shadow-shape select-none rounded-full bg-gray-400 px-2 py-1 text-xs font-bold text-gray-200 outline-none focus:outline-2 focus:outline-purple-light transition-all duration-150"
               tabIndex={0}
               aria-label={`Tarefas Criadas ${listTodo.length}`}
             >
@@ -94,7 +94,7 @@ export function App() {
               Concluídas
             </span>
             <span
-              className="shadow-shape select-none rounded-full bg-gray-400 px-2 py-1 text-xs font-bold text-gray-200  outline-none focus:outline-2 focus:outline-purple-light"
+              className="shadow-shape select-none rounded-full bg-gray-400 px-2 py-1 text-xs font-bold text-gray-200  outline-none focus:outline-2 focus:outline-purple-light transition-all duration-150"
               tabIndex={0}
               aria-label={`Tarefas Concluídas ${checkedTasksCounter} de ${listTodo.length}`}
             >
