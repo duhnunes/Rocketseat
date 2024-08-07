@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { PlusCircle } from 'lucide-react'
 import { useContext, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { v4 as uuidv4 } from 'uuid'
 import * as z from 'zod'
 
@@ -20,11 +20,12 @@ import {
 import { Textarea } from '../ui/textarea'
 
 const listTodoValidationSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   task: z.string().min(3, {
     message: 'Informe um mínimo de 3 caracteres',
   }),
   isChecked: z.boolean(),
+  isEditing: z.boolean(),
 })
 type ListTodoFormData = z.infer<typeof listTodoValidationSchema>
 
@@ -35,12 +36,13 @@ export function CreateTask() {
     resolver: zodResolver(listTodoValidationSchema),
     defaultValues: {
       task: '',
-      id: new Date().getTime(),
+      id: '',
       isChecked: false,
+      isEditing: false,
     },
   })
 
-  const { register, handleSubmit, reset } = newAddTodo
+  const { register, handleSubmit, reset, control } = newAddTodo
   const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   function handleAddTask() {
@@ -57,13 +59,6 @@ export function CreateTask() {
 
     setListTodo((state) => [newTask, ...state])
     reset()
-  }
-
-  function stopCloseDialog() {
-    if (!inputValue) {
-      return
-    }
-
     setIsDialogOpen(false)
   }
 
@@ -93,17 +88,26 @@ export function CreateTask() {
           <DialogHeader>
             <DialogTitle className="text-gray-100">Criar Tarefa</DialogTitle>
             <DialogDescription>
-              Adicione uma nova tarefa à sua lista
+              Adicione uma nova tarefa à sua lista utilizando{' '}
+              <strong className="text-gray-100 underline">markdown</strong>
             </DialogDescription>
           </DialogHeader>
-          <div className="flex flex-col flex-1 w-full rounded-lg shadow-code bg-gray-500 text-gray-100 text-sm transition-all duration-150 ring-offset-background placeholder:text-gray-300 outline-none focus:border-purple-dark focus:ring-2 placeholder:select-none focus:ring-purple-dark group">
-            <Textarea
-              placeholder="Adicione uma nova tarefa"
-              value={inputValue}
-              {...register('task', {
-                onChange: (e) => setInputValue(e.target.value),
-              })}
-              className="group-focus-within:outline-none group-focus-within:border-purple-dark group-focus-within:ring-2 group-focus-within:ring-purple-dark"
+          <div className="flex-1 rounded-lg bg-gray-500 text-gray-100 text-sm transition-all duration-150 ring-offset-background placeholder:text-gray-300 outline-none placeholder:select-none focus:border-purple-dark focus:ring-2  focus:ring-purple-dark  group">
+            <Controller
+              name="task"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <Textarea
+                  {...field}
+                  placeholder="Adicione uma nova tarefa"
+                  value={inputValue}
+                  className="group-focus-within:outline-none group-focus-within:border-purple-dark group-focus-within:ring-2 group-focus-within:ring-purple-dark"
+                  {...register('task', {
+                    onChange: (e) => setInputValue(e.target.value),
+                  })}
+                />
+              )}
             />
           </div>
           <DialogFooter className="gap-5">
@@ -112,7 +116,6 @@ export function CreateTask() {
               type="submit"
               size="lg"
               className="flex-1"
-              onClick={stopCloseDialog}
             >
               Salvar
             </Button>

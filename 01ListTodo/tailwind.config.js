@@ -25,6 +25,8 @@ module.exports = {
         input:
           '0px 8px 8px rgba(0 0 0 / 0.1), 0px 4px 4px rgba(0 0 0 / 0.1), 0px 2px 2px rgba(0 0 0 / 0.1), 0px 0px 0px 1px rgba(0 0 0 / 0.1), -1px 2px 35px 3px rgba(0 0 0 / 0.3) inset, 0 4px 5px rgba(0 0 0 / 0.2) inset',
         code: 'inset 0px 8px 8px rgba(0 0 0 / 0.3), inset 0px 4px 4px rgba(0 0 0 / 0.2), inset 0px 2px 2px rgba(0 0 0 / 0.3), inset 0px 0px 0px 1px rgba(0 0 0 / 0.3), inset 0px 0px 0px 1px rgba(0 0 0 / 0.2), inset 0px -1px 0px rgba(0 0 0 / 0.1)',
+        button:
+          '0px 8px 8px rgba(0, 0, 0, 0.3), 0px 4px 4px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.3), 0px 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 0px 0px 1px rgba(0, 0, 0, 0.2), 0px -1px 0px rgba(0, 0, 0, 0.1)',
       },
       colors: {
         blue: {
@@ -68,10 +70,7 @@ module.exports = {
     function addPreBlockCodeStyles({ addComponents }) {
       addComponents({
         'code[class*="language-"]': {
-          '@apply !whitespace-break-spaces': {},
-        },
-        '.pre-block code': {
-          '@apply bg-transparent text-inherit px-0 block w-[150x] text-balance':
+          '@apply !whitespace-break-spaces block h-[230px] overflow-auto font-mono':
             {},
         },
       })
@@ -79,13 +78,13 @@ module.exports = {
     function checkedBoxChecked({ addComponents }) {
       addComponents({
         '.checkboxCheckedCss': {
-          '@apply text-gray-300 line-through': {},
+          '@apply !text-gray-300/30 line-through': {},
         },
         '.checkboxCheckedCss a': {
-          '@apply text-gray-300 line-through': {},
+          '@apply !text-gray-300/30 line-through': {},
         },
         '.checkboxCheckedCss a:hover': {
-          '@apply text-gray-300 line-through': {},
+          '@apply !text-gray-300/30 line-through': {},
         },
       })
     },

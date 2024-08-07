@@ -29,9 +29,11 @@ export function App() {
         </div>
       </header>
 
-      <CreateTask />
+      <div className="mx-2">
+        <CreateTask />
+      </div>
 
-      <section className="mx-auto flex max-w-[736px] flex-col gap-6 px-4">
+      <section className="mx-auto flex max-w-[736px] flex-col gap-6 px-4 md:p-0">
         <article className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="cursor-default text-sm font-bold text-blue-light">

@@ -21,7 +21,7 @@ export const markdownComponents = {
   ),
   blockquote: ({ ...props }) => (
     <blockquote
-      className="border-l-4 border-gray-300 px-4 text-gray-300 mb-4"
+      className="border-l-4 border-gray-300 bg-gray-300/5 px-4 pt-px text-gray-300 mb-4"
       {...props}
     />
   ),
@@ -32,7 +32,7 @@ export const markdownComponents = {
   ),
   pre: ({ ...props }) => (
     <pre
-      className="pre-block !px-1.5 my-2 text-[85%] bg-[#6e768166] rounded-md"
+      className="pre-block px-1.5 my-2 text-[85%] bg-[#6e768166] rounded-md"
       {...props}
     />
   ),
