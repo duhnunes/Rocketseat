@@ -70,7 +70,7 @@ module.exports = {
     function addPreBlockCodeStyles({ addComponents }) {
       addComponents({
         'code[class*="language-"]': {
-          '@apply !whitespace-break-spaces block h-[230px] overflow-auto font-mono':
+          '@apply !whitespace-break-spaces block max-h-[230px] overflow-auto font-mono':
             {},
         },
       })

@@ -56,4 +56,30 @@ export const markdownComponents = {
       <ExternalLink className="size-3 text-gray-200 font-bold" />
     </a>
   ),
+  table: ({ ...props }) => (
+    <table
+      className="w-full bg-gray-700/50 rounded-lg my-1 text-gray-300"
+      {...props}
+    />
+  ),
+  thead: ({ ...props }) => (
+    <thead
+      className="block uppercase text-gray-200 bg-gray-700 rounded-t-lg"
+      {...props}
+    />
+  ),
+  tr: ({ ...props }) => (
+    <tr
+      className="flex w-full justify-between item-center text-left group [&:not(:last-child)]:border-b border-gray-400"
+      {...props}
+    />
+  ),
+  th: ({ ...props }) => <th className="w-full px-6 py-3" {...props} />,
+  tbody: ({ ...props }) => <tbody className="block" {...props} />,
+  td: ({ ...props }) => (
+    <td
+      className="w-full px-6 py-3 first:text-gray-100 group-hover:bg-gray-500/80"
+      {...props}
+    />
+  ),
 }
