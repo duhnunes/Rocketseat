@@ -6,7 +6,7 @@ import logo from '/assets/logo.svg'
 
 import { CreateTask } from './components/createTask'
 import { TaskComponent } from './components/task'
-import { AddTodoContext } from './contexts/AddTodoContext'
+import { AddTodoContext } from './contexts/ListTodoContext'
 
 export function App() {
   const { listTodo } = useContext(AddTodoContext)

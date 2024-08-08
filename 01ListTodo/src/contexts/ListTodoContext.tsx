@@ -23,19 +23,18 @@ interface AddTodoContextType {
   handleEditTask: (id: string) => void
 }
 
-interface AddTodoProviderProps {
+interface ListTodoContextProps {
   children: ReactNode
 }
 
 export const AddTodoContext = createContext({} as AddTodoContextType)
 
-export function AddTodoProvider({ children }: AddTodoProviderProps) {
+export function AddTodoProvider({ children }: ListTodoContextProps) {
   const [listTodo, setListTodo] = useState<CreateAddTodoData[]>([])
   const [inputValue, setInputValue] = useState('')
 
   function handleDeleteTask(id: string) {
     const filteredTasks = listTodo.filter((item) => item.id !== id)
-
     setListTodo(filteredTasks)
   }
 
