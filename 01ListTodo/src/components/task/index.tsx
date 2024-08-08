@@ -18,7 +18,7 @@ export const TaskComponent = ({ id, task, isChecked }: TaskComponentProps) => {
 
   return (
     <article
-      className="shadow-shape space-y-2 cursor-default items-start  rounded-lg bg-gray-500 p-4 transition-all hover:brightness-110 outline-none focus:border-purple-dark focus:ring-2 focus:ring-purple-dark"
+      className="shadow-shape space-y-1 cursor-default items-start  rounded-lg bg-gray-500 p-4 pt-2 transition-all hover:brightness-110 outline-none focus:border-purple-dark focus:ring-2 focus:ring-purple-dark"
       tabIndex={0}
       aria-label="Item da Tarefa"
     >

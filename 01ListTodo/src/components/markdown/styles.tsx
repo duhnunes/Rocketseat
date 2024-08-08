@@ -58,7 +58,7 @@ export const markdownComponents = {
   ),
   table: ({ ...props }) => (
     <table
-      className="w-full bg-gray-700/50 rounded-lg my-1 text-gray-300"
+      className="w-full bg-gray-700/50 rounded-lg my-2 text-gray-300"
       {...props}
     />
   ),

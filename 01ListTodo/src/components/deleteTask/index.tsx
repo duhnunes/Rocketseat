@@ -14,9 +14,7 @@ import {
 } from '../ui/alert-dialog'
 import { Button } from '../ui/button'
 
-interface DeleteTaskProps extends CreateAddTodoData {}
-
-export function DeleteTask({ task, id }: DeleteTaskProps) {
+export function DeleteTask({ id, task }: CreateAddTodoData) {
   const { handleDeleteTask } = useContext(AddTodoContext)
 
   return (
@@ -30,7 +28,9 @@ export function DeleteTask({ task, id }: DeleteTaskProps) {
         className="shadow-shape flex flex-col gap-1 border-none bg-gray-600 text-gray-100"
         role="alertdialog"
       >
-        <AlertDialogTitle>Você tem certeza?</AlertDialogTitle>
+        <AlertDialogTitle>
+          Deseja realmente deletar esta tarefa?
+        </AlertDialogTitle>
         <AlertDialogDescription>
           A task será deletada permanentemente, essa ação não pode ser desfeita.
         </AlertDialogDescription>

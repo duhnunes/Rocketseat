@@ -2,10 +2,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { PlusCircle } from 'lucide-react'
 import { useContext, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import { v4 as uuidv4 } from 'uuid'
 import * as z from 'zod'
 
-import { AddTodoContext, CreateAddTodoData } from '@/contexts/ListTodoContext'
+import { AddTodoContext } from '@/contexts/ListTodoContext'
 
 import { Button } from '../ui/button'
 import {
@@ -30,7 +29,8 @@ const listTodoValidationSchema = z.object({
 type ListTodoFormData = z.infer<typeof listTodoValidationSchema>
 
 export function CreateTask() {
-  const { inputValue, setInputValue, setListTodo } = useContext(AddTodoContext)
+  const { inputValue, setInputValue, createNewTask } =
+    useContext(AddTodoContext)
 
   const newAddTodo = useForm<ListTodoFormData>({
     resolver: zodResolver(listTodoValidationSchema),
@@ -45,19 +45,8 @@ export function CreateTask() {
   const { register, handleSubmit, reset, control } = newAddTodo
   const [isDialogOpen, setIsDialogOpen] = useState(false)
 
-  function handleAddTask() {
-    if (!inputValue) {
-      return
-    }
-
-    const newTask: CreateAddTodoData = {
-      id: uuidv4(),
-      task: inputValue,
-      isChecked: false,
-      isEditing: false,
-    }
-
-    setListTodo((state) => [newTask, ...state])
+  function handleAddTask(data: ListTodoFormData) {
+    createNewTask(data)
     reset()
     setIsDialogOpen(false)
   }
@@ -96,7 +85,6 @@ export function CreateTask() {
             <Controller
               name="task"
               control={control}
-              defaultValue=""
               render={({ field }) => (
                 <Textarea
                   {...field}

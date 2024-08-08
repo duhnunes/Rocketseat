@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Pencil } from 'lucide-react'
 import { useContext, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
@@ -16,23 +17,17 @@ import {
 } from '../ui/dialog'
 import { Textarea } from '../ui/textarea'
 
-interface EditTaskProps extends CreateAddTodoData {}
-
-export function EditTask({ task, id }: EditTaskProps) {
-  const { setListTodo } = useContext(AddTodoContext)
-  const [editedTask, setEditedTask] = useState(task)
+export function EditTask({ id, task }: CreateAddTodoData) {
+  const { handleEditTask, inputValue, setInputValue } =
+    useContext(AddTodoContext)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   const handleSave = () => {
-    if (!editedTask) {
+    if (!inputValue) {
       return
     }
 
-    setListTodo((prevList) =>
-      prevList.map((item) =>
-        item.id === id ? { ...item, task: editedTask, isEditing: false } : item,
-      ),
-    )
+    handleEditTask(id)
     setIsDialogOpen(false)
   }
 
@@ -63,15 +58,14 @@ export function EditTask({ task, id }: EditTaskProps) {
             <Controller
               name="editTask"
               control={control}
-              defaultValue={editedTask}
               render={({ field }) => (
                 <Textarea
                   {...field}
                   placeholder="Adicione uma nova tarefa"
-                  value={editedTask}
                   className="group-focus-within:outline-none group-focus-within:border-purple-dark group-focus-within:ring-2 group-focus-within:ring-purple-dark"
+                  value={task}
                   {...register('task', {
-                    onChange: (e) => setEditedTask(e.target.value),
+                    onChange: (e) => setInputValue(e.target.value),
                   })}
                 />
               )}
